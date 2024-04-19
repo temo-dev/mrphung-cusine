@@ -3,6 +3,7 @@
 /* eslint-disable @next/next/no-html-link-for-pages */
 "use client";
 import Image from "next/image";
+import Link from "next/link";
 import React from "react";
 
 function Header({ data }) {
@@ -41,7 +42,7 @@ function Header({ data }) {
           <ul className="top-main-menu">
             {data?.map((item) => (
               <li className="top-main-menu-li">
-                <a href={item.url}>{item.name}</a>
+                <Link href={item.url}>{item.name}</Link>
                 <img
                   className="top-main-menu-img"
                   src="assets/img/fullWM_1.jpg"

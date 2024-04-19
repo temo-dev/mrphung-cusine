@@ -1,3 +1,4 @@
+"use client";
 import { Inter } from "next/font/google";
 import Layout from "@/layouts/Layout";
 import Hero01 from "@/components/Hero/Hero01";

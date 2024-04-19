@@ -1,7 +1,42 @@
 /* eslint-disable @next/next/no-img-element */
-import React from "react";
+"use client";
+import React, { useState } from "react";
+import { useMutation } from "react-query";
+
+const createReservation = async (data) => {
+  const res = await fetch(
+    "https://cms-mr-phung.onrender.com/api/reservations/",
+    {
+      method: "POST",
+      body: JSON.stringify(data),
+      headers: { "content-type": "application/json; charset=utf-8" },
+    }
+  );
+  return res.json();
+};
 
 function Booking() {
+  const { mutate, isLoading, isError, error } = useMutation(createReservation);
+
+  const [inputs, setInputs] = useState({});
+  const handleChange = (e) => {
+    const name = e.target.name;
+    const value = e.target.value;
+
+    if (name == "reservation_date") {
+      const utcDate = new Date(value);
+      setInputs({ ...inputs, [name]: utcDate });
+    } else {
+      setInputs({ ...inputs, [name]: value });
+    }
+  };
+
+  const hanldeSubmit = (e) => {
+    e.preventDefault();
+    mutate({
+      data: inputs,
+    });
+  };
   return (
     <>
       {/* Start Booking System */}
@@ -39,32 +74,46 @@ function Booking() {
                   </div>
                   <div className="ak-height-60 ak-height-lg-30" />
                   <div className="booking-system-form">
-                    <form>
+                    <form onSubmit={hanldeSubmit}>
                       <div className="ak-form-time-date mb-2">
                         <input
                           type="text"
-                          className="ak-form-select"
+                          name="name"
+                          className="ak-form-select form-control"
                           placeholder="Your Name"
+                          onChange={handleChange}
                         />
                         <input
-                          type="phone"
+                          type="tel"
                           className="ak-form-select"
                           placeholder="Your Phone"
+                          name="phone"
+                          onChange={handleChange}
                         />
                         <input
                           type="number"
+                          name="number_of_people"
+                          onChange={handleChange}
                           className="ak-form-select"
-                          placeholder="Number Of People"
+                          placeholder="Slots"
                           min="1"
                         />
                       </div>
                       <div className="ak-form-time-date">
+                        <input
+                          type="email"
+                          name="email"
+                          onChange={handleChange}
+                          className="ak-form-select form-control"
+                          placeholder="Your Email"
+                        />
                         <div className="ak-time">
                           <input
                             defaultValue="09:00"
                             className="time-input"
-                            type="time"
-                            name="time"
+                            onChange={handleChange}
+                            type="datetime-local"
+                            name="reservation_date"
                             id="time"
                           />
                           <div className="time-icon">
@@ -106,51 +155,12 @@ function Booking() {
                             </svg>
                           </div>
                         </div>
-                        <div className="ak-date">
-                          <input
-                            className="date-input"
-                            type="date"
-                            name="date"
-                            id="date"
-                          />
-                          <div className="date-icon">
-                            <svg
-                              xmlns="http://www.w3.org/2000/svg"
-                              width={25}
-                              height={25}
-                              viewBox="0 0 25 25"
-                              fill="none"
-                            >
-                              <mask
-                                id="mask0_1166_8220"
-                                style={{ maskType: "luminance" }}
-                                maskUnits="userSpaceOnUse"
-                                x={0}
-                                y={0}
-                                width={25}
-                                height={25}
-                              >
-                                <path
-                                  d="M0.995117 0.140627H24.9951V24.1406H0.995117V0.140627Z"
-                                  fill="white"
-                                />
-                              </mask>
-                              <g mask="url(#mask0_1166_8220)">
-                                <path
-                                  d="M12.0732 18.6094H13.917M17.6152 18.6094H19.4589M6.54198 18.6094H8.38571M12.0732 13.0781H13.917M17.6152 13.0781H19.4589M6.54198 13.0781H8.38571M1.93262 8.45311H24.0683M18.537 5.68749V1.07813M7.46387 5.68749V1.07813M5.63077 23.2031H20.3701C22.4125 23.2031 24.0683 21.5474 24.0683 19.5049V6.62006C24.0683 4.57763 22.4125 2.92186 20.3701 2.92186H5.63077C3.58834 2.92186 1.93262 4.57763 1.93262 6.62006V19.5049C1.93262 21.5474 3.58834 23.2031 5.63077 23.2031Z"
-                                  stroke="#FFD28D"
-                                  strokeMiterlimit={10}
-                                  strokeLinecap="round"
-                                  strokeLinejoin="round"
-                                />
-                              </g>
-                            </svg>
-                          </div>
-                        </div>
                       </div>
                       <div className="ak-height-110 ak-height-lg-90" />
-                      <div className="ak-btn style-5">
-                        <button type="submit">Reservations</button>
+                      <div>
+                        <button type="submit" className="ak-btn style-5">
+                          Reservations
+                        </button>
                       </div>
                     </form>
                   </div>

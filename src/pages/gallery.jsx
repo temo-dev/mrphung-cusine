@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import Layout from "../layouts/Layout";
 import StartHero from "../components/Hero/StartHero";

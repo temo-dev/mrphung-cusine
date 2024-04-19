@@ -1,4 +1,5 @@
 /* eslint-disable @next/next/no-before-interactive-script-outside-document */
+"use client";
 import "@/styles/globals.css";
 
 import Head from "next/head";
@@ -17,42 +18,42 @@ export default function App({ Component, pageProps }) {
         />
         <link rel="shortcut icon" href="/favicon.svg" />
       </Head>
-      <Script src="assets/js/main.js" />
+      <Script src="/assets/js/main.js" />
       <Component {...pageProps} />
       <Script
-        src="assets/js/plugins/jquery-3.7.1.min.js"
+        src="/assets/js/plugins/jquery-3.7.1.min.js"
         strategy="beforeInteractive"
       />
       <Script
-        src="assets/js/plugins/isotope.pkg.min.js"
+        src="/assets/js/plugins/isotope.pkg.min.js"
         strategy="beforeInteractive"
       />
       <Script
-        src="assets/js/plugins/swiper.min.js"
+        src="/assets/js/plugins/swiper.min.js"
         strategy="beforeInteractive"
       />
       <Script
-        src="assets/js/plugins/lightgallery.min.js"
+        src="/assets/js/plugins/lightgallery.min.js"
         strategy="beforeInteractive"
       />
       <Script
-        src="assets/js/plugins/ScrollSmoother.min.js"
+        src="/assets/js/plugins/ScrollSmoother.min.js"
         strategy="beforeInteractive"
       />
       <Script
-        src="assets/js/plugins/SplitText.min.js"
+        src="/assets/js/plugins/SplitText.min.js"
         strategy="beforeInteractive"
       />
       <Script
-        src="assets/js/plugins/ScrollTrigger.min.js"
+        src="/assets/js/plugins/ScrollTrigger.min.js"
         strategy="beforeInteractive"
       />
       <Script
-        src="assets/js/plugins/ScrollToPlugin.min.js"
+        src="/assets/js/plugins/ScrollToPlugin.min.js"
         strategy="beforeInteractive"
       />
       <Script
-        src="assets/js/plugins/gsap.min.js"
+        src="/assets/js/plugins/gsap.min.js"
         strategy="beforeInteractive"
       />
 
