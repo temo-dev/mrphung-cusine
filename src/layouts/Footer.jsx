@@ -2,7 +2,7 @@
 import Image from "next/image";
 import React from "react";
 
-function Footer() {
+function Footer({ data }) {
   return (
     <>
       {/* Start Footer */}
@@ -43,7 +43,7 @@ function Footer() {
             <div className="footer-main">
               <div className="footer-eamil-menu">
                 <div className="footer-email">
-                  <a href="mailto:info@example.com">info@example.com</a>
+                  <a href="mailto:info@example.com">{data?.email}</a>
                 </div>
                 <div className="footer-menu">
                   <ul>
@@ -66,23 +66,19 @@ function Footer() {
               <div className="footer-info">
                 <div className="fooer-phn">
                   <a href="tel:1-800-915-6271">1-800-915-6271</a>
-                  <br />
-                  <a href="tel:1-800-915-6271">1-800-915-6271</a>
                 </div>
                 <div className="footer-address">
                   <a
                     href="https://maps.app.goo.gl/gAd1JdfRW5d6eHkn7"
                     target="_blank"
                   >
-                    2726 Av. PapineauMontreal,
-                    <br />
-                    QC H2K 4J6, Canada
+                    {data?.adress}
                   </a>
                 </div>
                 <div className="footer-time">
-                  <p>SUNDAY - THURSDAY: 11:30AM - 11PM</p>
-                  <div className="footer-time-border my-1" />
-                  <p>FRIDAY &amp; SATURDAY: 11:30AM - 12AM</p>
+                  <p>
+                    {data?.date}: {data?.time}
+                  </p>
                 </div>
                 <div className="footer-btn">
                   <a href="/reservations">
@@ -95,7 +91,7 @@ function Footer() {
             <div className="ak-height-130 ak-height-lg-30" />
             <div className="copy-right-section">
               <p className="text-uppercase text-md-center text-white">
-                Copyright 2023 All Right Reserved
+                {data?.copyright}
               </p>
             </div>
             <div className="ak-height-45 ak-height-lg-30" />

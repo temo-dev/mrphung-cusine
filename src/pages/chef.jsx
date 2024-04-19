@@ -3,7 +3,7 @@ import Layout from "../layouts/Layout";
 import StartHero from "../components/Hero/StartHero";
 import Chef01 from "../components/Chef/Chef01";
 
-function Reservations() {
+function Chef() {
   return (
     <Layout>
       <StartHero />
@@ -14,4 +14,4 @@ function Reservations() {
   );
 }
 
-export default Reservations;
+export default Chef;
