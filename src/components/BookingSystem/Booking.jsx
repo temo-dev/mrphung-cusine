@@ -43,18 +43,19 @@ function Booking() {
                       <div className="ak-form-time-date mb-2">
                         <input
                           type="text"
-                          className="ak-form-select border mx-1"
+                          className="ak-form-select"
                           placeholder="Your Name"
                         />
                         <input
                           type="phone"
-                          className="ak-form-select border mx-1"
+                          className="ak-form-select"
                           placeholder="Your Phone"
                         />
                         <input
                           type="number"
-                          className="ak-form-select border mx-1"
+                          className="ak-form-select"
                           placeholder="Number Of People"
+                          min="1"
                         />
                       </div>
                       <div className="ak-form-time-date">

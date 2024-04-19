@@ -1,8 +1,14 @@
 /* eslint-disable @next/next/no-html-link-for-pages */
+"use client";
+import { useAppStore } from "@/store/appStore";
 import Image from "next/image";
 import React from "react";
 
 function Footer({ data }) {
+  const { language: language, changeLang: changeLang } = useAppStore();
+  const handleChangeLang = (e) => {
+    changeLang(e.target.value);
+  };
   return (
     <>
       {/* Start Footer */}
@@ -90,6 +96,17 @@ function Footer({ data }) {
             <div className="ak-footer-hr-bottom qodef-grid-item" />
             <div className="ak-height-130 ak-height-lg-30" />
             <div className="copy-right-section">
+              <div className="my-2 w-25 m-auto">
+                <select
+                  className="form-select"
+                  defaultValue={language}
+                  onChange={handleChangeLang}
+                >
+                  <option value="vi">VietNam</option>
+                  <option value="cs">Czech</option>
+                  <option value="en">English</option>
+                </select>
+              </div>
               <p className="text-uppercase text-md-center text-white">
                 {data?.copyright}
               </p>

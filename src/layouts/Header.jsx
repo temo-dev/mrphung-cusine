@@ -1,6 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 /* eslint-disable react/jsx-key */
 /* eslint-disable @next/next/no-html-link-for-pages */
+"use client";
 import Image from "next/image";
 import React from "react";
 
@@ -36,6 +37,7 @@ function Header({ data }) {
               <path d="M30,12 L2,12" className="bar-3" />
             </svg>
           </button>
+
           <ul className="top-main-menu">
             {data?.map((item) => (
               <li className="top-main-menu-li">
