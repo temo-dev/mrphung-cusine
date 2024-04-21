@@ -1,7 +1,8 @@
+/* eslint-disable @next/next/no-img-element */
 "use client";
 import React from "react";
 
-function ListFood() {
+function ListFood({ data }) {
   return (
     <>
       {/* Start Food item show case */}
@@ -15,81 +16,28 @@ function ListFood() {
           <div className="ak-height-65 ak-height-lg-30" />
           <div className="ak-slider ak-slider-2">
             <div className="swiper-wrapper">
-              <div className="swiper-slide">
-                <div className="ak-card ak-style-1">
-                  <a href="portfolio-details.html" className="ak-card-img">
-                    <img src="assets/img/food_item_1.jpg" alt="..." />
-                  </a>
-                  <div className="card-info">
-                    <div className="card-text style-1">
-                      <a href="portfolio-details.html">
-                        <h5 className="card-title">Spaghetti Carbonara</h5>
+              {data?.foods.map((food) => {
+                console.log("food", food);
+                return (
+                  <div className="swiper-slide" key={food.id}>
+                    <div className="ak-card ak-style-1">
+                      <a href="portfolio-details.html" className="ak-card-img">
+                        <img src={food?.media[0].url} alt="..." />
                       </a>
-                      <div className="card-subtitle">Desserts</div>
+                      <div className="card-info">
+                        <div className="card-text style-1">
+                          <a href="portfolio-details.html">
+                            <h5 className="card-title text-capitalize">
+                              {food?.name}
+                            </h5>
+                          </a>
+                          <div className="card-subtitle">{food?.subtile}</div>
+                        </div>
+                      </div>
                     </div>
                   </div>
-                </div>
-              </div>
-              <div className="swiper-slide">
-                <div className="ak-card ak-style-1">
-                  <a href="portfolio-details.html" className="ak-card-img">
-                    <img src="assets/img/food_item_2.jpg" alt="..." />
-                  </a>
-                  <div className="card-info">
-                    <div className="card-text style-1">
-                      <a href="portfolio-details.html">
-                        <h5 className="card-title">Spaghetti Carbonara</h5>
-                      </a>
-                      <div className="card-subtitle">Desserts</div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div className="swiper-slide">
-                <div className="ak-card ak-style-1">
-                  <a href="portfolio-details.html" className="ak-card-img">
-                    <img src="assets/img/food_item_3.jpg" alt="..." />
-                  </a>
-                  <div className="card-info">
-                    <div className="card-text style-1">
-                      <a href="portfolio-details.html">
-                        <h5 className="card-title">Spaghetti Carbonara</h5>
-                      </a>
-                      <div className="card-subtitle">Desserts</div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div className="swiper-slide">
-                <div className="ak-card ak-style-1">
-                  <a href="portfolio-details.html" className="ak-card-img">
-                    <img src="assets/img/food_item_5.jpg" alt="..." />
-                  </a>
-                  <div className="card-info">
-                    <div className="card-text style-1">
-                      <a href="portfolio-details.html">
-                        <h5 className="card-title">Spaghetti Carbonara</h5>
-                      </a>
-                      <div className="card-subtitle">Desserts</div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div className="swiper-slide">
-                <div className="ak-card ak-style-1">
-                  <a href="portfolio-details.html" className="ak-card-img">
-                    <img src="assets/img/food_item_4.jpg" alt="..." />
-                  </a>
-                  <div className="card-info">
-                    <div className="card-text style-1">
-                      <a href="portfolio-details.html">
-                        <h5 className="card-title">Spaghetti Carbonara</h5>
-                      </a>
-                      <div className="card-subtitle">Desserts</div>
-                    </div>
-                  </div>
-                </div>
-              </div>
+                );
+              })}
             </div>
           </div>
           <div className="container">

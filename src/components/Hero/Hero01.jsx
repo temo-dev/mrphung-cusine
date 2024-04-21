@@ -1,84 +1,30 @@
 "use client";
 import React from "react";
 
-function Hero01() {
+function Hero01({ data, form }) {
   return (
     <>
       {/* Start Hero */}
       <section>
         <div className="ak-hero ak-style1">
-          <div
-            className="ak-hero-bg ak-bg"
-            data-src="assets/img/hero_bg_1.jpg"
-          />
+          <div className="ak-hero-bg ak-bg" data-src={data?.url} />
           <div className="hero-text-section container-fluid">
             <div className="ak-slider ak-slider-1">
               <div className="swiper-wrapper">
                 <div className="swiper-slide">
                   <div className="slider-info">
                     <div className="hero-title">
-                      <h1 className="hero-main-title">Elegance Retreat</h1>
+                      <h1 className="hero-main-title">{data?.title}</h1>
                       <h1 className="hero-main-title-1">Restaurant</h1>
                     </div>
                     <div className="ak-height-30 ak-height-lg-30" />
                     <div>
-                      <p className="hero-sub-text">
-                        Welcome to our restaurant, where culinary artistry meets
-                        exceptional dining experiences. At, we strive to create
-                        a gastronomic haven that tantalizes your taste buds and
-                        leaves you with
-                      </p>
+                      <p className="hero-sub-text">{data?.description}</p>
                     </div>
                     <div className="ak-height-70 ak-height-lg-30" />
-                    <a href="reservations.html" className="hero-btn style-1">
+                    <a href="#booking" className="hero-btn style-1 smooth-goto">
                       <div className="ak-btn style-5 color-yellow-bg">
-                        Reservations
-                      </div>
-                    </a>
-                  </div>
-                </div>
-                <div className="swiper-slide">
-                  <div className="slider-info">
-                    <div className="hero-title">
-                      <h1 className="hero-main-title">Elegance Retreat</h1>
-                      <h1 className="hero-main-title-1">Restaurant</h1>
-                    </div>
-                    <div className="ak-height-30 ak-height-lg-30" />
-                    <div>
-                      <p className="hero-sub-text">
-                        Welcome to our restaurant, where culinary artistry meets
-                        exceptional dining experiences. At, we strive to create
-                        a gastronomic haven that tantalizes your taste buds and
-                        leaves you with
-                      </p>
-                    </div>
-                    <div className="ak-height-70 ak-height-lg-30" />
-                    <a href="reservations.html" className="hero-btn style-1">
-                      <div className="ak-btn style-5 color-yellow-bg">
-                        Reservations
-                      </div>
-                    </a>
-                  </div>
-                </div>
-                <div className="swiper-slide">
-                  <div className="slider-info">
-                    <div className="hero-title">
-                      <h1 className="hero-main-title">Elegance Retreat</h1>
-                      <h1 className="hero-main-title-1">Restaurant</h1>
-                    </div>
-                    <div className="ak-height-30 ak-height-lg-30" />
-                    <div>
-                      <p className="hero-sub-text">
-                        Welcome to our restaurant, where culinary artistry meets
-                        exceptional dining experiences. At, we strive to create
-                        a gastronomic haven that tantalizes your taste buds and
-                        leaves you with
-                      </p>
-                    </div>
-                    <div className="ak-height-70 ak-height-lg-30" />
-                    <a href="reservations.html" className="hero-btn style-1">
-                      <div className="ak-btn style-5 color-yellow-bg">
-                        Reservations
+                        {form?.title}
                       </div>
                     </a>
                   </div>

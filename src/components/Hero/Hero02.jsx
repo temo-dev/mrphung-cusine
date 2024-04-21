@@ -1,7 +1,8 @@
+/* eslint-disable @next/next/no-img-element */
 "use client";
 import React from "react";
 
-function Hero02() {
+function Hero02({ data }) {
   return (
     <>
       <div className="ak-height-150 ak-height-lg-60" />
@@ -11,24 +12,19 @@ function Hero02() {
           <div className="ak-best-item">
             <div className="best-item-section-1">
               <div className="ak-section-heading ak-style-1">
-                <div className="ak-section-subtitle">Our food philosophy</div>
-                <h2 className="ak-section-title anim-title-2">
-                  <span className="text-white"> Our</span> <br />
-                  Specialties
-                </h2>
+                <div className="ak-section-subtitle">{data?.subtitle}</div>
+                <h2 className="ak-section-title anim-title-2">{data?.title}</h2>
               </div>
               <div className="ak-height-30 ak-height-lg-30" />
               <div>
-                <p>
-                  Welcome to our restaurant, where culinary artistry meets
-                  exceptional dining experiences. At, we strive to create a
-                  gastronomic haven that tantalizes your taste buds.
-                </p>
+                <p>{data?.description}</p>
               </div>
               <div className="ak-height-50 ak-height-lg-30" />
               <div className="img-one">
                 <img
-                  src="assets/img/bestItem2.jpg"
+                  src={
+                    data?.media.find((item) => item.field == "smallImage").url
+                  }
                   alt="..."
                   data-speed="1.2"
                   data-lag={0}
@@ -42,7 +38,7 @@ function Hero02() {
             <div className="best-item-section-3">
               <div className="img-two">
                 <img
-                  src="assets/img/bestItem1.jpg"
+                  src={data?.media.find((item) => item.field == "bigImage").url}
                   alt="..."
                   data-speed="1.1"
                   data-lag={0}

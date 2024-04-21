@@ -3,7 +3,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState } from "react";
 import Header from "./Header";
-import Booking from "../components/BookingSystem/Booking";
 import Footer from "./Footer";
 import { useQuery } from "react-query";
 import { useAppStore } from "@/store/appStore";
@@ -14,7 +13,7 @@ const fetchMyLayout = async () => {
 };
 
 export default function Layout({ children }) {
-  const { language: language, changeLang: changeLang } = useAppStore();
+  const { language: language } = useAppStore();
   const [layout, setLayout] = useState(null);
   const { data, isLoading, error } = useQuery("layout", fetchMyLayout);
 
@@ -42,8 +41,7 @@ export default function Layout({ children }) {
         <Header data={layout?.header} />
         <div>{children}</div>
       </div>
-      <Booking />
-      <Footer data={layout?.footer[0]} />
+      <Footer data={layout?.footer[0]} header={layout?.header} />
     </div>
   );
 }

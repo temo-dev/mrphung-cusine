@@ -1,7 +1,8 @@
+/* eslint-disable @next/next/no-img-element */
 "use client";
 import React from "react";
 
-function OpenHour() {
+function OpenHour({ data, form }) {
   return (
     <>
       {/* Start Opening Hour */}
@@ -10,30 +11,26 @@ function OpenHour() {
         <div className="opening-hour type-2">
           <div className="opening-hour-img-section style-2">
             <img
-              src="assets/img/about_open_hour.jpg"
+              src={data?.url}
               className="imagesZoom opening-bg-img ak-bg"
               alt="..."
             />
             <div className="overlap-opening-img" />
           </div>
           <div className="opening-hour-text-section type-2">
-            <h2 className="opening-hour-title  anim-title-2">Opening Hours</h2>
+            <h2 className="opening-hour-title  anim-title-2">{data?.title}</h2>
             <div className="ak-height-30 ak-height-lg-30" />
-            <p className="opening-hour-subtext">
-              Lorem to our restaurant, where culinary artistry meets exceptional
-              dining experiences. At, we strive to create a gastronomic haven
-              that.
-            </p>
+            <p className="opening-hour-subtext">{data?.description}</p>
             <div className="ak-height-30 ak-height-lg-30" />
             <div className="opening-hour-date">
-              <p>SUNDAY - THURSDAY: 11:30AM - 11PM</p>
+              <p>{data?.date}</p>
               <div className="opening-hour-hr" />
-              <p> FRIDAY &amp; SATURDAY: 11:30AM - 12AM</p>
+              <p> {data?.time}</p>
             </div>
             <div className="ak-height-70 ak-height-lg-30" />
             <div className="text-btn">
-              <a href="reservations.html" className="text-btn1">
-                Reservation
+              <a href="#booking" className="text-btn1 smooth-goto">
+                {form?.title}
               </a>
             </div>
           </div>

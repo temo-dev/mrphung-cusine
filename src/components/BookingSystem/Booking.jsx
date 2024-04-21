@@ -15,7 +15,7 @@ const createReservation = async (data) => {
   return res.json();
 };
 
-function Booking() {
+function Booking({ form }) {
   const { mutate, isLoading, isError, error } = useMutation(createReservation);
 
   const [inputs, setInputs] = useState({});
@@ -67,9 +67,9 @@ function Booking() {
               <div className="col-md-6 col-12">
                 <div className="booking-system-heading">
                   <div className="ak-section-heading ak-style-1">
-                    <div className="ak-section-subtitle">Reservations</div>
+                    <div className="ak-section-subtitle">{form?.subtitle}</div>
                     <h2 className="ak-section-title anim-title-2">
-                      Reservations
+                      {form?.title}
                     </h2>
                   </div>
                   <div className="ak-height-60 ak-height-lg-30" />
@@ -158,7 +158,7 @@ function Booking() {
                       <div className="ak-height-110 ak-height-lg-90" />
                       <div>
                         <button type="submit" className="ak-btn style-5">
-                          Reservations
+                          {form?.title}
                         </button>
                       </div>
                     </form>
