@@ -1,7 +1,9 @@
+/* eslint-disable @next/next/no-img-element */
 "use client";
 import React from "react";
 
-function Review() {
+function Review({ data }) {
+  console.log("data", data);
   return (
     <>
       <div className="ak-height-150 ak-height-lg-60" />
@@ -9,99 +11,34 @@ function Review() {
       <section className="container">
         <div className="ak-slider ak-slider-3">
           <div className="swiper-wrapper">
-            <div className="swiper-slide">
-              <div className="container">
-                <div className="testimonial-section">
-                  <div className="testimonial-icon-1">
-                    <img src="assets/img/testimonial_icon_l.svg" alt="..." />
-                  </div>
-                  <div className="testimonial-info-section">
-                    <div className="testimonial-info">
-                      <img
-                        src="assets/img/testimonial_1.jpg"
-                        className="testimonial-info-img"
-                        alt="..."
-                      />
-                      <h6 className="testimonial-info-title">
-                        Steven K. Roberts
-                      </h6>
-                      <p className="short-title">From USA</p>
-                      <p className="testimonial-info-subtitle">
-                        “Their 1 talented team of passionate chefs masterfully
-                        crafts each dish, combining the finest ingredients with
-                        innovative techniques to present culinary creations that
-                        are as visually stunning as they are delicious.”
-                      </p>
+            {data?.map((item) => (
+              <div className="swiper-slide" key={item.id}>
+                <div className="container">
+                  <div className="testimonial-section">
+                    <div className="testimonial-icon-1">
+                      <img src="assets/img/testimonial_icon_l.svg" alt="..." />
                     </div>
-                  </div>
-                  <div className="testimonial-icon-1">
-                    <img src="assets/img/testimonial_icon_r.svg" alt="..." />
+                    <div className="testimonial-info-section">
+                      <div className="testimonial-info">
+                        <img
+                          src="assets/img/testimonial_1.jpg"
+                          className="testimonial-info-img"
+                          alt="..."
+                        />
+                        <h6 className="testimonial-info-title">{item.name}</h6>
+                        <p className="short-title">{item.adress}</p>
+                        <p className="testimonial-info-subtitle">
+                          {item.description}
+                        </p>
+                      </div>
+                    </div>
+                    <div className="testimonial-icon-1">
+                      <img src="assets/img/testimonial_icon_r.svg" alt="..." />
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-            <div className="swiper-slide">
-              <div className="container">
-                <div className="testimonial-section">
-                  <div className="testimonial-icon-1">
-                    <img src="assets/img/testimonial_icon_l.svg" alt="..." />
-                  </div>
-                  <div className="testimonial-info-section">
-                    <div className="testimonial-info">
-                      <img
-                        src="assets/img/testimonial_2.jpg"
-                        className="testimonial-info-img"
-                        alt="..."
-                      />
-                      <h6 className="testimonial-info-title">
-                        Steven K. Roberts
-                      </h6>
-                      <p className="short-title">From USA</p>
-                      <p className="testimonial-info-subtitle">
-                        “Their 2 talented team of passionate chefs masterfully
-                        crafts each dish, combining the finest ingredients with
-                        innovative techniques to present culinary creations that
-                        are as visually stunning as they are delicious.”
-                      </p>
-                    </div>
-                  </div>
-                  <div className="testimonial-icon-1">
-                    <img src="assets/img/testimonial_icon_r.svg" alt="..." />
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="swiper-slide">
-              <div className="container">
-                <div className="testimonial-section">
-                  <div className="testimonial-icon-1">
-                    <img src="assets/img/testimonial_icon_l.svg" alt="..." />
-                  </div>
-                  <div className="testimonial-info-section">
-                    <div className="testimonial-info">
-                      <img
-                        src="assets/img/testimonial_3.jpg"
-                        className="testimonial-info-img"
-                        alt="..."
-                      />
-                      <h6 className="testimonial-info-title">
-                        Steven K. Roberts
-                      </h6>
-                      <p className="short-title">From USA</p>
-                      <p className="testimonial-info-subtitle">
-                        “Their talented team of passionate chefs masterfully
-                        crafts each dish, combining the finest ingredients with
-                        innovative techniques to present culinary creations that
-                        are as visually stunning as they are delicious.”
-                      </p>
-                    </div>
-                  </div>
-                  <div className="testimonial-icon-1">
-                    <img src="assets/img/testimonial_icon_r.svg" alt="..." />
-                  </div>
-                </div>
-              </div>
-            </div>
+            ))}
           </div>
         </div>
         <div className="container">

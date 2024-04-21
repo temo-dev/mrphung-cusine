@@ -3,7 +3,6 @@
 /* eslint-disable @next/next/no-html-link-for-pages */
 "use client";
 import Image from "next/image";
-import Link from "next/link";
 import React from "react";
 
 function Header({ data }) {
@@ -12,9 +11,9 @@ function Header({ data }) {
       <div className="header-top">
         <div className="wrapper">
           <div className="header-logo">
-            <Link href="#booking" className="logo smooth-goto">
+            <a href="#booking" className="logo smooth-goto">
               Reservation
-            </Link>
+            </a>
           </div>
           <div className="center-log">
             <a href="/">
@@ -42,7 +41,7 @@ function Header({ data }) {
           <ul className="top-main-menu">
             {data?.map((item) => (
               <li className="top-main-menu-li">
-                <Link href={item.url}>{item.name}</Link>
+                <a href={item.url}>{item.name}</a>
                 <img
                   className="top-main-menu-img"
                   src="assets/img/fullWM_1.jpg"
@@ -58,7 +57,7 @@ function Header({ data }) {
         <div className="container">
           <div className="ak-main_header_in">
             <div className="ak-main_header_left">
-              <a className="ak-site_branding" href="index.html">
+              <a className="ak-site_branding" href="/">
                 <Image
                   src="/assets/img/logo.png"
                   alt="logo"

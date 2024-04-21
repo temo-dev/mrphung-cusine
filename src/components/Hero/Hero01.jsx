@@ -22,13 +22,15 @@ function Hero01({ data, form }) {
                       <p className="hero-sub-text">{data?.description}</p>
                     </div>
                     <div className="ak-height-70 ak-height-lg-30" />
-                    <a href="#booking" className="hero-btn style-1 smooth-goto">
-                      <div className="ak-btn style-5 color-yellow-bg">
-                        {form?.title}
-                      </div>
-                    </a>
                   </div>
                 </div>
+              </div>
+              <div>
+                <a href="#booking" className="hero-btn style-1 smooth-goto">
+                  <div className="ak-btn style-5 color-yellow-bg">
+                    {form?.title}
+                  </div>
+                </a>
               </div>
             </div>
           </div>

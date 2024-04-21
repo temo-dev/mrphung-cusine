@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-html-link-for-pages */
 /* eslint-disable @next/next/no-img-element */
 "use client";
 import React from "react";
@@ -10,23 +11,22 @@ function ListFood({ data }) {
         <div className="ak-height-150 ak-height-lg-60" />
         <div className="container-fluid">
           <div className="ak-section-heading ak-style-1 ak-type-1">
-            <div className="ak-section-subtitle">Food Items</div>
-            <h2 className="ak-section-title anim-title">Food Showcase</h2>
+            <div className="ak-section-subtitle">{data?.subtitle}</div>
+            <h2 className="ak-section-title anim-title">{data?.title}</h2>
           </div>
           <div className="ak-height-65 ak-height-lg-30" />
           <div className="ak-slider ak-slider-2">
             <div className="swiper-wrapper">
               {data?.foods.map((food) => {
-                console.log("food", food);
                 return (
                   <div className="swiper-slide" key={food.id}>
                     <div className="ak-card ak-style-1">
-                      <a href="portfolio-details.html" className="ak-card-img">
+                      <a href="/menu" className="ak-card-img">
                         <img src={food?.media[0].url} alt="..." />
                       </a>
                       <div className="card-info">
                         <div className="card-text style-1">
-                          <a href="portfolio-details.html">
+                          <a href="/menu">
                             <h5 className="card-title text-capitalize">
                               {food?.name}
                             </h5>
