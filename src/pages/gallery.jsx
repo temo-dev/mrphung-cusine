@@ -5,6 +5,7 @@ import StartHero from "../components/Hero/StartHero";
 import Gallery01 from "../components/Gallery/Gallery01";
 import ListFood from "../components/Hero/ListFood";
 import Review from "../components/Hero/Review";
+import Booking from "@/components/BookingSystem/Booking";
 
 function Gallery() {
   return (
@@ -16,6 +17,7 @@ function Gallery() {
       <ListFood />
       <div className="ak-height-180 ak-height-lg-90"></div>
       <Review />
+      <Booking />
     </Layout>
   );
 }

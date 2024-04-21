@@ -4551,7 +4551,7 @@ select:focus {
 }
 .booking-system-form
   .ak-form-time-date
-  input[type="time"]::-webkit-calendar-picker-indicator {
+  input[type="datetime-local"]::-webkit-calendar-picker-indicator {
   background-color: #ffd28d;
   cursor: pointer;
   opacity: 0;

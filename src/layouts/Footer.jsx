@@ -1,10 +1,11 @@
+/* eslint-disable react/jsx-key */
 /* eslint-disable @next/next/no-html-link-for-pages */
 "use client";
 import { useAppStore } from "@/store/appStore";
 import Image from "next/image";
 import React from "react";
 
-function Footer({ data }) {
+function Footer({ data, header }) {
   const { language: language, changeLang: changeLang } = useAppStore();
   const handleChangeLang = (e) => {
     changeLang(e.target.value);
@@ -53,25 +54,18 @@ function Footer({ data }) {
                 </div>
                 <div className="footer-menu">
                   <ul>
-                    <li>
-                      <a href="/">Home</a>
-                    </li>
-                    <li>
-                      <a href="/menu">Menu</a>
-                    </li>
-                    <li>
-                      <a href="/gallery">Gallery</a>
-                    </li>
-                    <li>
-                      <a href="/reservations">Chef</a>
-                    </li>
+                    {header?.map((item) => (
+                      <li>
+                        <a href={item.url}>{item.name}</a>
+                      </li>
+                    ))}
                   </ul>
                 </div>
               </div>
               <div className="ak-height-75 ak-height-lg-5" />
               <div className="footer-info">
                 <div className="fooer-phn">
-                  <a href="tel:1-800-915-6271">1-800-915-6271</a>
+                  <a href="tel:1-800-915-6271">{data?.phone}</a>
                 </div>
                 <div className="footer-address">
                   <a
@@ -87,7 +81,7 @@ function Footer({ data }) {
                   </p>
                 </div>
                 <div className="footer-btn">
-                  <a href="/reservations">
+                  <a href="#booking" className="smooth-goto">
                     <div className="ak-btn style-5">Reservations</div>
                   </a>
                 </div>

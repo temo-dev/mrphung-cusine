@@ -18,7 +18,7 @@ export default function App({ Component, pageProps }) {
         />
         <link rel="shortcut icon" href="/favicon.svg" />
       </Head>
-      <Script src="/assets/js/main.js" />
+
       <Component {...pageProps} />
       <Script
         src="/assets/js/plugins/jquery-3.7.1.min.js"
@@ -56,7 +56,7 @@ export default function App({ Component, pageProps }) {
         src="/assets/js/plugins/gsap.min.js"
         strategy="beforeInteractive"
       />
-
+      <Script src="/assets/js/main.js" />
     </QueryClientProvider>
   )
 }

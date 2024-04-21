@@ -40,7 +40,7 @@ function Booking() {
   return (
     <>
       {/* Start Booking System */}
-      <section>
+      <section id="booking">
         <div className="ak-booking-system">
           <img
             className="ak-booking-system-bg-img ak-bg imagesZoom"
@@ -109,7 +109,6 @@ function Booking() {
                         />
                         <div className="ak-time">
                           <input
-                            defaultValue="09:00"
                             className="time-input"
                             onChange={handleChange}
                             type="datetime-local"

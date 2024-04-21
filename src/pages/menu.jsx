@@ -3,6 +3,7 @@ import React from "react";
 import Layout from "../layouts/Layout";
 import StartHero from "../components/Hero/StartHero";
 import Menu01 from "../components/Menu/Menu01";
+import Booking from "@/components/BookingSystem/Booking";
 
 function Menu() {
   return (
@@ -10,6 +11,7 @@ function Menu() {
       <StartHero />
       <Menu01 />
       <Menu01 />
+      <Booking />
     </Layout>
   );
 }

@@ -12,12 +12,12 @@ function Header({ data }) {
       <div className="header-top">
         <div className="wrapper">
           <div className="header-logo">
-            <a href="/reservations" className="logo">
+            <Link href="#booking" className="logo smooth-goto">
               Reservation
-            </a>
+            </Link>
           </div>
           <div className="center-log">
-            <a href="index.html">
+            <a href="/">
               <Image
                 src="/assets/img/logo.png"
                 alt="logo"
