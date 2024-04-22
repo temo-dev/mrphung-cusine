@@ -1,4 +1,4 @@
-(function ($) {
+function _runJQuery($) {
   ("use strict");
 
   /*
@@ -1110,4 +1110,6 @@
   }
 
 
-})(jQuery);
+}
+
+window.runJQueryControls = () => _runJQuery(jQuery);

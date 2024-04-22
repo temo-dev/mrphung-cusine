@@ -107,12 +107,11 @@
                 z-index: 3;
             }
         }
-        input[type="datetime-local"]::-webkit-calendar-picker-indicator {
+        input[type="time"]::-webkit-calendar-picker-indicator {
             background-color: $yellow;
             cursor: pointer;
             opacity: 0;
         }
-          
         .ak-date {
             flex-basis: 48%;
             position: relative;

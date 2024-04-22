@@ -1,8 +1,33 @@
 /* eslint-disable @next/next/no-img-element */
 "use client";
 import React from "react";
+import { gsap, Expo } from "gsap";
+import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 
 function Hero02({ data }) {
+  if (typeof window !== "undefined") {
+    gsap.registerPlugin(ScrollTrigger);
+    const overlapImage = document.querySelectorAll(".img-overlay");
+    if (overlapImage) {
+      overlapImage.forEach((item) => {
+        const tl4 = gsap.timeline({
+          ScrollTrigger: {
+            trigger: item,
+            start: "top 60%",
+            end: "bottom 10%",
+            scrub: false,
+            markers: false,
+          },
+        });
+        tl4.to(item, {
+          ease: Expo.easeInOut,
+          height: "0%",
+          duration: 1,
+          stagger: 2,
+        });
+      });
+    }
+  }
   return (
     <>
       <div className="ak-height-150 ak-height-lg-60" />

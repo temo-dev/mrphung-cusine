@@ -2,7 +2,7 @@
 import { create } from 'zustand'
 
 export const useAppStore = create((set) => ({
-  language: 'cs',
+  language: 'en',
   changeLang: (payload) => {
     localStorage.setItem("language", payload);
     return set({ language: payload })

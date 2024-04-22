@@ -1,7 +1,10 @@
 /* eslint-disable @next/next/no-img-element */
 "use client";
+import Link from "next/link";
 import React, { useState } from "react";
 import { useMutation } from "react-query";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 
 const createReservation = async (data) => {
   const res = await fetch(
@@ -16,8 +19,39 @@ const createReservation = async (data) => {
 };
 
 function Booking({ form }) {
-  const { mutate, isLoading, isError, error } = useMutation(createReservation);
+  if (typeof window !== "undefined") {
+    gsap.registerPlugin(ScrollTrigger);
+    const imageZoom = document.getElementsByName("imagesZoom");
+    if (imageZoom) {
+      let imagesZoomAll = gsap.utils.toArray(imageZoom);
+      imagesZoomAll.forEach((image) => {
+        let tl12 = gsap.timeline({
+          ScrollTrigger: {
+            trigger: image,
+            start: "top 80%",
+            end: "bottom 10%",
+            scrub: 1,
+            markers: false,
+          },
+        });
 
+        tl12.fromTo(
+          image,
+          { scale: 1 },
+          {
+            scale: 1.15,
+            duration: 3.5,
+            ease: "expoScale(1, 1.15)",
+            transformOrigin: "50% 50%",
+            z: 0.1,
+            rotationZ: "0.01",
+          },
+          "<"
+        );
+      });
+    }
+  }
+  const { mutate, isLoading, isError, error } = useMutation(createReservation);
   const [inputs, setInputs] = useState({});
   const handleChange = (e) => {
     const name = e.target.name;
@@ -44,7 +78,7 @@ function Booking({ form }) {
         <div className="ak-booking-system">
           <img
             className="ak-booking-system-bg-img ak-bg imagesZoom"
-            src="assets/img/bookingSystemBg.png"
+            src="/assets/img/bookingSystemBg.png"
             alt="..."
           />
           <div className="ak-height-150 ak-height-lg-60" />
@@ -53,14 +87,14 @@ function Booking({ form }) {
               <div className="col-md-6 col-12">
                 <div className="ak-height-lg-60" />
                 <div className="text-center">
-                  <a
+                  <Link
                     href="https://www.youtube.com/watch?v=UsD1MhKBmD4"
                     className="ak-video-block ak-style1 ak-video-open"
                   >
                     <span className="ak-player-btn ak-accent-color">
                       <span />
                     </span>
-                  </a>
+                  </Link>
                 </div>
                 <div className="ak-height-lg-60" />
               </div>

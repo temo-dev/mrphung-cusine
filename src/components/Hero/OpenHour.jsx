@@ -1,8 +1,34 @@
 /* eslint-disable @next/next/no-img-element */
 "use client";
 import React from "react";
+import { gsap, Expo } from "gsap";
+import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 
 function OpenHour({ data, form }) {
+  if (typeof window !== "undefined") {
+    gsap.registerPlugin(ScrollTrigger);
+    const overlapImage = document.getElementsByClassName("overlap-opening-img");
+    if (overlapImage) {
+      let blogAnim = gsap.utils.toArray(overlapImage);
+      const tl3 = gsap.timeline({
+        ScrollTrigger: {
+          trigger: ".overlap-opening-img",
+          start: "top 60%",
+          end: "bottom 10%",
+          scrub: false,
+          markers: false,
+        },
+      });
+
+      tl3.to(blogAnim, {
+        ease: Expo.easeInOut,
+        height: "0%",
+        duration: 1,
+        stagger: 2,
+      });
+    }
+  }
+
   return (
     <>
       {/* Start Opening Hour */}

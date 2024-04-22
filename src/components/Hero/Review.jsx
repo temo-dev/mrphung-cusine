@@ -1,18 +1,29 @@
 /* eslint-disable @next/next/no-img-element */
 "use client";
 import React from "react";
+import { Navigation, Pagination } from "swiper/modules";
+import { Swiper, SwiperSlide } from "swiper/react";
 
 function Review({ data }) {
-  console.log("data", data);
   return (
     <>
       <div className="ak-height-150 ak-height-lg-60" />
       {/* Start Testimonial */}
       <section className="container">
         <div className="ak-slider ak-slider-3">
-          <div className="swiper-wrapper">
+          <Swiper
+            modules={[Navigation, Pagination]}
+            loop={true}
+            speed={1000}
+            autoplay={true}
+            slidesPerView={1}
+            navigation={{
+              nextEl: ".ak-swiper-button-prev-3",
+              prevEl: ".ak-swiper-button-next-3",
+            }}
+          >
             {data?.map((item) => (
-              <div className="swiper-slide" key={item.id}>
+              <SwiperSlide key={item.id}>
                 <div className="container">
                   <div className="testimonial-section">
                     <div className="testimonial-icon-1">
@@ -37,9 +48,9 @@ function Review({ data }) {
                     </div>
                   </div>
                 </div>
-              </div>
+              </SwiperSlide>
             ))}
-          </div>
+          </Swiper>
         </div>
         <div className="container">
           <div className="ak-swiper-controll-3">

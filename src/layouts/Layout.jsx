@@ -7,8 +7,6 @@ import Header from "./Header";
 import Footer from "./Footer";
 import { useQuery } from "react-query";
 import { useAppStore } from "@/store/appStore";
-import { Helmet } from "react-helmet";
-import Script from "next/script";
 
 const fetchMyLayout = async () => {
   const res = await fetch("https://cms-mr-phung.onrender.com/api/get-layout");
@@ -41,9 +39,6 @@ export default function Layout({ children }) {
   return (
     <>
       <div>
-        <Helmet>
-          <script src="/assets/js/main.js" type="text/javascript"></script>
-        </Helmet>
         <Header data={layout?.header} />
         <div>{children}</div>
         <Footer data={layout?.footer[0]} header={layout?.header} />

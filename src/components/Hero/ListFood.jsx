@@ -2,6 +2,8 @@
 /* eslint-disable @next/next/no-img-element */
 "use client";
 import React from "react";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation, Pagination } from "swiper/modules";
 
 function ListFood({ data }) {
   return (
@@ -16,10 +18,25 @@ function ListFood({ data }) {
           </div>
           <div className="ak-height-65 ak-height-lg-30" />
           <div className="ak-slider ak-slider-2">
-            <div className="swiper-wrapper">
+            <Swiper
+              modules={[Navigation, Pagination]}
+              loop={true}
+              speed={1000}
+              autoplay={true}
+              slidesPerView={3}
+              spaceBetween={30}
+              pagination={{
+                el: ".ak-pagination-2",
+                clickable: true,
+              }}
+              navigation={{
+                nextEl: ".ak-swiper-button-prev-2",
+                prevEl: ".ak-swiper-button-next-2",
+              }}
+            >
               {data?.foods.map((food) => {
                 return (
-                  <div className="swiper-slide" key={food.id}>
+                  <SwiperSlide key={food.id}>
                     <div className="ak-card ak-style-1">
                       <a href="/menu" className="ak-card-img">
                         <img src={food?.media[0].url} alt="..." />
@@ -35,10 +52,10 @@ function ListFood({ data }) {
                         </div>
                       </div>
                     </div>
-                  </div>
+                  </SwiperSlide>
                 );
               })}
-            </div>
+            </Swiper>
           </div>
           <div className="container">
             <div className="ak-next-prev-2">

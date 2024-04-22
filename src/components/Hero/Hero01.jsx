@@ -1,5 +1,8 @@
 "use client";
+import Link from "next/link";
 import React from "react";
+import { Navigation, Pagination } from "swiper/modules";
+import { Swiper, SwiperSlide } from "swiper/react";
 
 function Hero01({ data, form }) {
   return (
@@ -7,31 +10,67 @@ function Hero01({ data, form }) {
       {/* Start Hero */}
       <section>
         <div className="ak-hero ak-style1">
-          <div className="ak-hero-bg ak-bg" data-src={data?.url} />
+          <div
+            className="ak-hero-bg ak-bg"
+            style={{ backgroundImage: `url(${data?.url})` }}
+          />
           <div className="hero-text-section container-fluid">
             <div className="ak-slider ak-slider-1">
-              <div className="swiper-wrapper">
-                <div className="swiper-slide">
-                  <div className="slider-info">
-                    <div className="hero-title">
-                      <h1 className="hero-main-title">{data?.title}</h1>
-                      <h1 className="hero-main-title-1">Restaurant</h1>
-                    </div>
-                    <div className="ak-height-30 ak-height-lg-30" />
-                    <div>
-                      <p className="hero-sub-text">{data?.description}</p>
-                    </div>
-                    <div className="ak-height-70 ak-height-lg-30" />
+              <Swiper
+                modules={[Navigation, Pagination]}
+                loop={true}
+                speed={800}
+                autoplay={false}
+                slidesPerView={"auto"}
+                pagination={{
+                  el: ".ak-pagination",
+                  clickable: true,
+                }}
+                navigation={{
+                  nextEl: ".ak-swiper-button-prev",
+                  prevEl: ".ak-swiper-button-next",
+                }}
+              >
+                <SwiperSlide>
+                  <div className="hero-title">
+                    <h1 className="hero-main-title">{data?.title}</h1>
+                    <h1 className="hero-main-title-1">Restaurant</h1>
                   </div>
-                </div>
-              </div>
-              <div>
-                <a href="#booking" className="hero-btn style-1 smooth-goto">
-                  <div className="ak-btn style-5 color-yellow-bg">
-                    {form?.title}
+                  <div className="ak-height-30 ak-height-lg-30" />
+                  <div>
+                    <p className="hero-sub-text">{data?.description}</p>
                   </div>
-                </a>
-              </div>
+                  <div className="ak-height-70 ak-height-lg-30" />
+                  <Link
+                    href="#booking"
+                    className="hero-btn style-1 smooth-goto"
+                  >
+                    <div className="ak-btn style-5 color-yellow-bg">
+                      {form?.title}
+                    </div>
+                  </Link>
+                </SwiperSlide>
+                <SwiperSlide>
+                  <div className="hero-title">
+                    <h1 className="hero-main-title">{data?.title}</h1>
+                    <h1 className="hero-main-title-1">Restaurant</h1>
+                  </div>
+                  <div className="ak-height-30 ak-height-lg-30" />
+                  <div>
+                    <p className="hero-sub-text">{data?.description}</p>
+                  </div>
+                  <div className="ak-height-70 ak-height-lg-30" />
+                  <Link
+                    href="#booking"
+                    className="hero-btn style-1 smooth-goto"
+                  >
+                    <div className="ak-btn style-5 color-yellow-bg">
+                      {form?.title}
+                    </div>
+                  </Link>
+                </SwiperSlide>
+              </Swiper>
+              <div></div>
             </div>
           </div>
           <div className="container">

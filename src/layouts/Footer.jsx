@@ -4,8 +4,60 @@
 import { useAppStore } from "@/store/appStore";
 import Image from "next/image";
 import React from "react";
-
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
+import Link from "next/link";
 function Footer({ data, header }) {
+  if (typeof window !== "undefined") {
+    gsap.registerPlugin(ScrollTrigger);
+    /*--------------------------------------------------------------
+   Footer Animations
+--------------------------------------------------------------*/
+    const container = document.getElementsByClassName("ak-hr-container");
+    if (container) {
+      const tl7 = gsap.timeline({
+        scrollTrigger: {
+          trigger: ".ak-hr-container",
+          start: "top 90%",
+          end: "bottom 10%",
+          scrub: false,
+          markers: false,
+        },
+      });
+
+      tl7.fromTo(
+        ".ak-footer-hr-top",
+        {
+          width: "0%",
+          duration: 0.5,
+        },
+        {
+          delay: 0.3,
+          duration: 0.5,
+          width: "100%",
+        }
+      );
+      tl7.fromTo(
+        ".ak-footer-hr-bottom",
+        {
+          width: "0%",
+        },
+        {
+          duration: 0.5,
+          width: "100%",
+        }
+      );
+      tl7.to(".footer-time-border", {
+        width: "100%",
+      });
+    }
+    /*--------------------------------------------------------------
+    Food Menu Animations
+--------------------------------------------------------------*/
+    const food_menu_hr = document.querySelectorAll(".food-menu-hr.style-1");
+    if (food_menu_hr) {
+    }
+  }
   const { language: language, changeLang: changeLang } = useAppStore();
   const handleChangeLang = (e) => {
     changeLang(e.target.value);
@@ -18,6 +70,7 @@ function Footer({ data, header }) {
           <div
             className="ak-bg footer-bg-img"
             data-src="assets/img/footer_bg.png"
+            style={{ backgroundImage: `url(/assets/img/footer_bg.png)` }}
           />
           <div className="container ak-hr-container">
             <div className="ak-braner-logo type-color-1 footer-logo">
@@ -81,9 +134,9 @@ function Footer({ data, header }) {
                   </p>
                 </div>
                 <div className="footer-btn">
-                  <a href="#booking" className="smooth-goto">
+                  <Link href="#booking" className="smooth-goto">
                     <div className="ak-btn style-5">Reservations</div>
-                  </a>
+                  </Link>
                 </div>
               </div>
             </div>
