@@ -1,13 +1,11 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 "use client";
-import Layout from "@/layouts/Layout";
 import Hero01 from "@/components/Hero/Hero01";
 import OpenHour from "@/components/Hero/OpenHour";
 import ListFood from "@/components/Hero/ListFood";
 import Hero02 from "@/components/Hero/Hero02";
 import Review from "@/components/Hero/Review";
 import { useEffect, useState } from "react";
-import { useQuery } from "react-query";
 import { useGetData } from "@/store/appStore";
 import Booking from "@/components/BookingSystem/Booking";
 
@@ -19,7 +17,6 @@ export default function Home() {
       setHome(dataHome.find((home) => home.locale === language));
     }
   }, [language]);
-  console.log("home", home);
   return (
     <>
       <Hero01 data={home?.hero01[0]} form={home?.forms[0]} />

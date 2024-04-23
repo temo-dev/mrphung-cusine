@@ -4,7 +4,7 @@
 import { useGetData } from "@/store/appStore";
 import Image from "next/image";
 import React from "react";
-import { gsap } from "gsap";
+import { gsap, Expo } from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import Link from "next/link";
 function Footer({ data, header }) {
@@ -54,8 +54,71 @@ function Footer({ data, header }) {
     /*--------------------------------------------------------------
     Food Menu Animations
 --------------------------------------------------------------*/
-    const food_menu_hr = document.querySelectorAll(".food-menu-hr.style-1");
-    if (food_menu_hr) {
+    const elem = document.querySelector(".loading-overlap");
+    if (elem) {
+      const elem2 = document.querySelector(".footer-log-elem");
+      var loadingElem = gsap.timeline();
+      elem2.addEventListener("click", function () {
+        loadingElem.to(elem, {
+          duration: 0.3,
+          height: "100vh",
+          ease: Expo.easeInOut,
+        });
+        loadingElem.to("html,body", {
+          scrollTop: 0,
+        });
+        loadingElem.to(elem, {
+          delay: 0.1,
+          top: 0,
+          height: "0vh",
+          duration: 0.4,
+          ease: Expo.easeInOut,
+        });
+        loadingElem.to(elem, {
+          buttom: 0,
+        });
+      });
+      /*--------------------------------------------------------------
+    19. Footer Animations
+ --------------------------------------------------------------*/
+      const hrFooter = document.getElementsByClassName("ak-hr-container");
+      if (hrFooter) {
+        const tl7 = gsap.timeline({
+          scrollTrigger: {
+            trigger: ".ak-hr-container",
+            start: "top 90%",
+            end: "bottom 10%",
+            scrub: false,
+            markers: false,
+          },
+        });
+
+        tl7.fromTo(
+          ".ak-footer-hr-top",
+          {
+            width: "0%",
+            duration: 0.5,
+          },
+          {
+            delay: 0.3,
+            duration: 0.5,
+            width: "100%",
+          }
+        );
+        tl7.fromTo(
+          ".ak-footer-hr-bottom",
+          {
+            width: "0%",
+          },
+          {
+            duration: 0.5,
+            width: "100%",
+          }
+        );
+        tl7.to(".footer-time-border", {
+          width: "100%",
+        });
+      }
     }
   }
   const { language: language, changeLang: changeLang } = useGetData();
@@ -139,7 +202,7 @@ function Footer({ data, header }) {
                 </div>
               </div>
             </div>
-            <div className="ak-footer-hr-bottom qodef-grid-item" />
+            {/* <div className="ak-footer-hr-bottom qodef-grid-item" /> */}
             <div className="ak-height-130 ak-height-lg-30" />
             <div className="copy-right-section">
               <div className="my-2 w-25 m-auto">

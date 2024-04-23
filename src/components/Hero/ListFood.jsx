@@ -23,7 +23,7 @@ function ListFood({ data }) {
               loop={true}
               speed={1000}
               autoplay={true}
-              slidesPerView={3}
+              slidesPerView={"auto"}
               spaceBetween={30}
               pagination={{
                 el: ".ak-pagination-2",

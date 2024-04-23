@@ -69,7 +69,7 @@ function Header({ data }) {
       const menuItemBar = gsap.timeline();
       var navtl = gsap.timeline({ paused: true });
       navtl.set(hamsdf, {
-        display: "none",
+        opacity: 0,
         transition: "all 0.5s ease-in",
       });
 
@@ -143,6 +143,10 @@ function Header({ data }) {
             paddingLeft: "0%",
             paddingRight: "0%",
           });
+          navtl.set(hamsdf, {
+            opacity: 1,
+            transition: "all 0.5s ease-in",
+          });
         } else {
           gsap.set(links, {
             display: "flex",
@@ -191,11 +195,6 @@ function Header({ data }) {
             {data?.map((item) => (
               <li className="top-main-menu-li">
                 <Link href={item.url}>{item.name}</Link>
-                {/* <img
-                  className="top-main-menu-img"
-                  src="assets/img/fullWM_1.jpg"
-                  alt="..."
-                /> */}
               </li>
             ))}
           </ul>
@@ -205,16 +204,6 @@ function Header({ data }) {
       <div className="ak-main_header">
         <div className="container">
           <div className="ak-main_header_in">
-            <div className="ak-main_header_left">
-              <Link className="ak-site_branding" href="/">
-                <Image
-                  src="/assets/img/logo.png"
-                  alt="logo"
-                  width={100}
-                  height={100}
-                />
-              </Link>
-            </div>
             <div className="ak-main_header_right">
               <div className="ak-nav ak-medium">
                 <ul className="ak-nav_list">
