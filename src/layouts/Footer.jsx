@@ -132,7 +132,6 @@ function Footer({ data, header }) {
                     {data?.date}: {data?.time}
                   </p>
                 </div>
-                3
                 <div className="footer-btn">
                   <Link href="#booking" className="smooth-goto">
                     <div className="ak-btn">Reservations</div>

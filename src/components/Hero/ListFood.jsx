@@ -6,7 +6,6 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination } from "swiper/modules";
 
 function ListFood({ data }) {
-  console.log("data=====", data);
   return (
     <>
       {/* Start Food item show case */}
@@ -40,7 +39,7 @@ function ListFood({ data }) {
                   <SwiperSlide key={food.id}>
                     <div className="ak-card ak-style-1">
                       <a href="/menu" className="ak-card-img">
-                        <img src={food?.media[0].url} alt="..." />
+                        <img src={food?.image} alt="..." />
                       </a>
                       <div className="card-info">
                         <div className="card-text style-1">
@@ -49,7 +48,7 @@ function ListFood({ data }) {
                               {food?.name}
                             </h5>
                           </a>
-                          <div className="card-subtitle">{food?.subtile}</div>
+                          <div className="card-subtitle">{food?.cuisine}</div>
                         </div>
                       </div>
                     </div>

@@ -2,25 +2,6 @@
 import { create } from 'zustand'
 import axios from 'axios'
 
-// export const useAppStore = create((set) => ({
-//   isLoading: true,
-//   language: 'en',
-//   dataLayout: [],
-//   dataHome: [],
-//   setLoading: (payload) => set(payload),
-//   changeLang: (payload) => {
-//     return set({ language: payload })
-//   },
-//   getInitLayout: (payload) => {
-//     console.log('payload', payload)
-//     return set({ dataLayout: payload })
-//   },
-//   getInitHome: (payload) => {
-//     return set({ dataHome: payload })
-//   }
-
-// }))
-
 const getLayout = async () => {
   const res = await axios.get("https://cms-mr-phung.onrender.com/api/get-layout")
   return { "layout": res.data }
@@ -69,4 +50,3 @@ export const useGetData = create((set, get) => ({
   changeLang: (payload) => set({ language: payload }),
 
 }))
-console.log('initialState', initialState)
