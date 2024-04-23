@@ -20,22 +20,24 @@ const fetchMyHome = async () => {
 
 export default function Home() {
   const [home, setHome] = useState();
-  const { language: language, changeLang: changeLang } = useAppStore();
+  const {
+    language: language,
+    dataHome: dataHomeStore,
+    getInitHome: handleInitHome,
+  } = useAppStore();
   const { data, isLoading, error } = useQuery("home", fetchMyHome);
   useEffect(() => {
-    const dataHomeInLocal = localStorage.getItem("home");
-    if (!isLoading && dataHomeInLocal == null) {
+    if (!isLoading) {
       setHome(data.filter((home) => home.locale == language)[0]);
-      localStorage.setItem("home", JSON.stringify(data));
-    } else if (dataHomeInLocal != null) {
-      const languageInStorage = localStorage.getItem("language");
-      setHome(
-        JSON.parse(dataHomeInLocal).filter(
-          (home) => home.locale == languageInStorage
-        )[0]
-      );
+      handleInitHome(data);
     }
-  }, [isLoading, language]);
+  }, [isLoading]);
+  useEffect(() => {
+    if (dataHomeStore.length > 0) {
+      setHome(dataHomeStore.filter((home) => home.locale == language)[0]);
+    }
+  }, [language]);
+
   return (
     <>
       <Layout>

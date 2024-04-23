@@ -2,9 +2,7 @@ import "@/styles/globals.css";
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
-import "../styles/sass/style.css";
-
-// import "@/styles/sass/style.scss";
+// import "@/styles/scss/style.scss";
 
 
 

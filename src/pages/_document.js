@@ -9,7 +9,7 @@ export default function Document() {
     <Html lang="en">
       <Head>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
-        {/* <link rel="stylesheet" href="/assets/sass/style.css" /> */}
+        {/* <link rel="stylesheet" href="assets/scss/style.scss" /> */}
       </Head>
       <body>
         <Main />

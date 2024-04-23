@@ -5,6 +5,7 @@ import { Navigation, Pagination } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 
 function Review({ data }) {
+  console.log("data", data);
   return (
     <>
       <div className="ak-height-150 ak-height-lg-60" />
@@ -32,14 +33,14 @@ function Review({ data }) {
                     <div className="testimonial-info-section">
                       <div className="testimonial-info">
                         <img
-                          src="assets/img/testimonial_1.jpg"
+                          src={item.url}
                           className="testimonial-info-img"
                           alt="..."
                         />
                         <h6 className="testimonial-info-title">{item.name}</h6>
                         <p className="short-title">{item.adress}</p>
                         <p className="testimonial-info-subtitle">
-                          {item.description}
+                          {item.content}
                         </p>
                       </div>
                     </div>

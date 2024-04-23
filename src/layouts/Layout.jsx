@@ -14,28 +14,28 @@ const fetchMyLayout = async () => {
 };
 
 export default function Layout({ children }) {
-  const { language: language } = useAppStore();
+  const {
+    language: language,
+    getInitLayout: hanldeInitLayout,
+    dataLayout: dataLayoutStore,
+  } = useAppStore();
   const [layout, setLayout] = useState(null);
   const { data, isLoading, error } = useQuery("layout", fetchMyLayout);
 
   useEffect(() => {
-    const dataLayoutInLocal = localStorage.getItem("layout");
-    const dataLanguage = localStorage.getItem("language");
-
-    if (!isLoading && dataLayoutInLocal == null && dataLanguage == null) {
+    if (!isLoading) {
       setLayout(data.filter((layout) => layout.locale == language)[0]);
-      localStorage.setItem("layout", JSON.stringify(data));
-      localStorage.setItem("language", language);
-    } else if (dataLayoutInLocal != null) {
-      const languageInStorage = localStorage.getItem("language");
+      hanldeInitLayout(data);
+    }
+  }, [isLoading]);
+
+  useEffect(() => {
+    if (dataLayoutStore.length > 0) {
       setLayout(
-        JSON.parse(dataLayoutInLocal).filter(
-          (layout) => layout.locale == languageInStorage
-        )[0]
+        dataLayoutStore.filter((layout) => layout.locale == language)[0]
       );
     }
-  }, [isLoading, language]);
-
+  }, [language]);
   return (
     <>
       <div>

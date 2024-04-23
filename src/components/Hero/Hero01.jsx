@@ -3,7 +3,6 @@ import Link from "next/link";
 import React from "react";
 import { Navigation, Pagination } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
-
 function Hero01({ data, form }) {
   return (
     <>
