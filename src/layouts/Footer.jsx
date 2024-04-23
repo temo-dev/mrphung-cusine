@@ -1,7 +1,7 @@
 /* eslint-disable react/jsx-key */
 /* eslint-disable @next/next/no-html-link-for-pages */
 "use client";
-import { useAppStore } from "@/store/appStore";
+import { useGetData } from "@/store/appStore";
 import Image from "next/image";
 import React from "react";
 import { gsap } from "gsap";
@@ -58,7 +58,7 @@ function Footer({ data, header }) {
     if (food_menu_hr) {
     }
   }
-  const { language: language, changeLang: changeLang } = useAppStore();
+  const { language: language, changeLang: changeLang } = useGetData();
   const handleChangeLang = (e) => {
     changeLang(e.target.value);
   };
@@ -69,8 +69,7 @@ function Footer({ data, header }) {
         <div className="ak-footer ak-style-1">
           <div
             className="ak-bg footer-bg-img"
-            data-src="assets/img/footer_bg.png"
-            style={{ backgroundImage: `url(/assets/img/footer_bg.png)` }}
+            style={{ backgroundImage: `url(assets/img/footer_bg.png)` }}
           />
           <div className="container ak-hr-container">
             <div className="ak-braner-logo type-color-1 footer-logo">
@@ -109,7 +108,7 @@ function Footer({ data, header }) {
                   <ul>
                     {header?.map((item) => (
                       <li>
-                        <a href={item.url}>{item.name}</a>
+                        <Link href={item.url}>{item.name}</Link>
                       </li>
                     ))}
                   </ul>
@@ -133,9 +132,10 @@ function Footer({ data, header }) {
                     {data?.date}: {data?.time}
                   </p>
                 </div>
+                3
                 <div className="footer-btn">
                   <Link href="#booking" className="smooth-goto">
-                    <div className="ak-btn style-5">Reservations</div>
+                    <div className="ak-btn">Reservations</div>
                   </Link>
                 </div>
               </div>

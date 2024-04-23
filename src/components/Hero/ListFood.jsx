@@ -6,6 +6,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination } from "swiper/modules";
 
 function ListFood({ data }) {
+  console.log("data=====", data);
   return (
     <>
       {/* Start Food item show case */}
@@ -34,7 +35,7 @@ function ListFood({ data }) {
                 prevEl: ".ak-swiper-button-next-2",
               }}
             >
-              {data?.foods.map((food) => {
+              {data?.foods?.map((food) => {
                 return (
                   <SwiperSlide key={food.id}>
                     <div className="ak-card ak-style-1">

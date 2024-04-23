@@ -5,7 +5,6 @@ import { Navigation, Pagination } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 
 function Review({ data }) {
-  console.log("data", data);
   return (
     <>
       <div className="ak-height-150 ak-height-lg-60" />

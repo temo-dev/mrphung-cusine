@@ -1,7 +1,9 @@
 "use client";
+import Link from "next/link";
 import React from "react";
 
-function Gallery01() {
+function Gallery01({ listFoods }) {
+  console.log("listFoods", listFoods);
   return (
     <>
       {/* Start Gallery */}
@@ -12,40 +14,16 @@ function Gallery01() {
               <div
                 className="gallery ak-bg"
                 data-src="assets/img/gallery_1.jpg"
+                style={{ backgroundImage: `url(${listFoods?.foods[0].image})` }}
               >
                 <div className="gallery style-1">
                   <div className="gallery-hover">
-                    <div className="gallery-hover-icon">
-                      <a href="assets/img/gallery_1.jpg">
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          width={41}
-                          height={41}
-                          viewBox="0 0 41 41"
-                          fill="none"
-                        >
-                          <rect
-                            x="0.507812"
-                            y="19.7305"
-                            width={40}
-                            height={1}
-                            fill="#FFD28D"
-                          />
-                          <rect
-                            x="20.0078"
-                            y="0.730469"
-                            width={1}
-                            height={40}
-                            fill="#FFD28D"
-                          />
-                        </svg>
-                      </a>
-                    </div>
+                    <div className="gallery-hover-icon"></div>
                     <div className="gallery-hover-info">
-                      <a href="#">
-                        <h6>Paella Valencene</h6>
-                        <p>Italian</p>
-                      </a>
+                      <Link href="/chef">
+                        <h6>{listFoods?.foods[0].name}</h6>
+                        <p>{listFoods?.foods[0].cuisine}</p>
+                      </Link>
                     </div>
                   </div>
                 </div>
@@ -54,41 +32,17 @@ function Gallery01() {
             <div className="col ak-border drop-anim-gallery">
               <div
                 className="gallery ak-bg"
-                data-src="assets/img/gallery_2.jpg"
+                data-src="assets/img/gallery_1.jpg"
+                style={{ backgroundImage: `url(${listFoods?.foods[1].image})` }}
               >
                 <div className="gallery style-1">
                   <div className="gallery-hover">
-                    <div className="gallery-hover-icon">
-                      <a href="assets/img/gallery_2.jpg">
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          width={41}
-                          height={41}
-                          viewBox="0 0 41 41"
-                          fill="none"
-                        >
-                          <rect
-                            x="0.507812"
-                            y="19.7305"
-                            width={40}
-                            height={1}
-                            fill="#FFD28D"
-                          />
-                          <rect
-                            x="20.0078"
-                            y="0.730469"
-                            width={1}
-                            height={40}
-                            fill="#FFD28D"
-                          />
-                        </svg>
-                      </a>
-                    </div>
+                    <div className="gallery-hover-icon"></div>
                     <div className="gallery-hover-info">
-                      <a href="#">
-                        <h6>Paella Valencene</h6>
-                        <p>Italian</p>
-                      </a>
+                      <Link href="/chef">
+                        <h6>{listFoods?.foods[1].name}</h6>
+                        <p>{listFoods?.foods[1].cuisine}</p>
+                      </Link>
                     </div>
                   </div>
                 </div>
@@ -97,41 +51,17 @@ function Gallery01() {
             <div className="col ak-border border-none-right">
               <div
                 className="gallery ak-bg"
-                data-src="assets/img/gallery_3.jpg"
+                data-src="assets/img/gallery_1.jpg"
+                style={{ backgroundImage: `url(${listFoods?.foods[2].image})` }}
               >
                 <div className="gallery style-1">
                   <div className="gallery-hover">
-                    <div className="gallery-hover-icon">
-                      <a href="assets/img/gallery_3.jpg">
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          width={41}
-                          height={41}
-                          viewBox="0 0 41 41"
-                          fill="none"
-                        >
-                          <rect
-                            x="0.507812"
-                            y="19.7305"
-                            width={40}
-                            height={1}
-                            fill="#FFD28D"
-                          />
-                          <rect
-                            x="20.0078"
-                            y="0.730469"
-                            width={1}
-                            height={40}
-                            fill="#FFD28D"
-                          />
-                        </svg>
-                      </a>
-                    </div>
+                    <div className="gallery-hover-icon"></div>
                     <div className="gallery-hover-info">
-                      <a href="#">
-                        <h6>Paella Valencene</h6>
-                        <p>Italian</p>
-                      </a>
+                      <Link href="/chef">
+                        <h6>{listFoods?.foods[2].name}</h6>
+                        <p>{listFoods?.foods[2].cuisine}</p>
+                      </Link>
                     </div>
                   </div>
                 </div>
@@ -140,41 +70,17 @@ function Gallery01() {
             <div className="col ak-border border-none-bottom drop-anim-gallery">
               <div
                 className="gallery ak-bg"
-                data-src="assets/img/gallery_4.jpg"
+                data-src="assets/img/gallery_1.jpg"
+                style={{ backgroundImage: `url(${listFoods?.foods[3].image})` }}
               >
                 <div className="gallery style-1">
                   <div className="gallery-hover">
-                    <div className="gallery-hover-icon">
-                      <a href="assets/img/gallery_4.jpg">
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          width={41}
-                          height={41}
-                          viewBox="0 0 41 41"
-                          fill="none"
-                        >
-                          <rect
-                            x="0.507812"
-                            y="19.7305"
-                            width={40}
-                            height={1}
-                            fill="#FFD28D"
-                          />
-                          <rect
-                            x="20.0078"
-                            y="0.730469"
-                            width={1}
-                            height={40}
-                            fill="#FFD28D"
-                          />
-                        </svg>
-                      </a>
-                    </div>
+                    <div className="gallery-hover-icon"></div>
                     <div className="gallery-hover-info">
-                      <a href="#">
-                        <h6>Paella Valencene</h6>
-                        <p>Italian</p>
-                      </a>
+                      <Link href="/chef">
+                        <h6>{listFoods?.foods[3].name}</h6>
+                        <p>{listFoods?.foods[3].cuisine}</p>
+                      </Link>
                     </div>
                   </div>
                 </div>
@@ -183,41 +89,17 @@ function Gallery01() {
             <div className="col ak-border border-none-bottom drop-anim-gallery">
               <div
                 className="gallery ak-bg"
-                data-src="assets/img/gallery_5.jpg"
+                data-src="assets/img/gallery_1.jpg"
+                style={{ backgroundImage: `url(${listFoods?.foods[4].image})` }}
               >
                 <div className="gallery style-1">
                   <div className="gallery-hover">
-                    <div className="gallery-hover-icon">
-                      <a href="assets/img/gallery_5.jpg">
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          width={41}
-                          height={41}
-                          viewBox="0 0 41 41"
-                          fill="none"
-                        >
-                          <rect
-                            x="0.507812"
-                            y="19.7305"
-                            width={40}
-                            height={1}
-                            fill="#FFD28D"
-                          />
-                          <rect
-                            x="20.0078"
-                            y="0.730469"
-                            width={1}
-                            height={40}
-                            fill="#FFD28D"
-                          />
-                        </svg>
-                      </a>
-                    </div>
+                    <div className="gallery-hover-icon"></div>
                     <div className="gallery-hover-info">
-                      <a href="#">
-                        <h6>Paella Valencene</h6>
-                        <p>Italian</p>
-                      </a>
+                      <Link href="/chef">
+                        <h6>{listFoods?.foods[4].name}</h6>
+                        <p>{listFoods?.foods[4].cuisine}</p>
+                      </Link>
                     </div>
                   </div>
                 </div>
@@ -226,41 +108,17 @@ function Gallery01() {
             <div className="col ak-border border-none-right border-none-bottom">
               <div
                 className="gallery ak-bg"
-                data-src="assets/img/gallery_6.jpg"
+                data-src="assets/img/gallery_1.jpg"
+                style={{ backgroundImage: `url(${listFoods?.foods[0].image})` }}
               >
                 <div className="gallery style-1">
                   <div className="gallery-hover">
-                    <div className="gallery-hover-icon">
-                      <a href="assets/img/gallery_6.jpg">
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          width={41}
-                          height={41}
-                          viewBox="0 0 41 41"
-                          fill="none"
-                        >
-                          <rect
-                            x="0.507812"
-                            y="19.7305"
-                            width={40}
-                            height={1}
-                            fill="#FFD28D"
-                          />
-                          <rect
-                            x="20.0078"
-                            y="0.730469"
-                            width={1}
-                            height={40}
-                            fill="#FFD28D"
-                          />
-                        </svg>
-                      </a>
-                    </div>
+                    <div className="gallery-hover-icon"></div>
                     <div className="gallery-hover-info">
-                      <a href="#">
-                        <h6>Paella Valencene</h6>
-                        <p>Italian</p>
-                      </a>
+                      <Link href="/chef">
+                        <h6>{listFoods?.foods[0].name}</h6>
+                        <p>{listFoods?.foods[0].cuisine}</p>
+                      </Link>
                     </div>
                   </div>
                 </div>

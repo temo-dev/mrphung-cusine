@@ -5,44 +5,37 @@
 import React, { useEffect, useState } from "react";
 import Header from "./Header";
 import Footer from "./Footer";
-import { useQuery } from "react-query";
-import { useAppStore } from "@/store/appStore";
-
-const fetchMyLayout = async () => {
-  const res = await fetch("https://cms-mr-phung.onrender.com/api/get-layout");
-  return res.json();
-};
+import { useGetData } from "@/store/appStore";
+import PreLoader from "./PreLoader";
 
 export default function Layout({ children }) {
   const {
     language: language,
-    getInitLayout: hanldeInitLayout,
-    dataLayout: dataLayoutStore,
-  } = useAppStore();
+    isLoading: isLoading,
+    dataLayout: dataLayout,
+    execute: execute,
+  } = useGetData();
   const [layout, setLayout] = useState(null);
-  const { data, isLoading, error } = useQuery("layout", fetchMyLayout);
+  useEffect(() => {
+    execute();
+  }, []);
 
   useEffect(() => {
-    if (!isLoading) {
-      setLayout(data.filter((layout) => layout.locale == language)[0]);
-      hanldeInitLayout(data);
+    if (dataLayout?.length > 0) {
+      setLayout(dataLayout.find((layout) => layout.locale === language));
     }
-  }, [isLoading]);
-
-  useEffect(() => {
-    if (dataLayoutStore.length > 0) {
-      setLayout(
-        dataLayoutStore.filter((layout) => layout.locale == language)[0]
-      );
-    }
-  }, [language]);
+  }, [isLoading, language]);
   return (
     <>
-      <div>
-        <Header data={layout?.header} />
-        <div>{children}</div>
-        <Footer data={layout?.footer[0]} header={layout?.header} />
-      </div>
+      {isLoading ? (
+        <PreLoader />
+      ) : (
+        <div>
+          <Header data={layout?.header} />
+          <div>{children}</div>
+          <Footer data={layout?.footer[0]} header={layout?.header} />
+        </div>
+      )}
     </>
   );
 }

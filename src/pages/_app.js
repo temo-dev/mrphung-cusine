@@ -2,12 +2,9 @@ import "@/styles/globals.css";
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
-// import "@/styles/scss/style.scss";
-
-
-
 import Head from "next/head";
 import { QueryClient, QueryClientProvider } from "react-query";
+import Layout from "@/layouts/Layout";
 
 export default function App({ Component, pageProps }) {
   const queryClient = new QueryClient();
@@ -21,7 +18,9 @@ export default function App({ Component, pageProps }) {
         />
         <link rel="shortcut icon" href="/favicon.svg" />
       </Head>
-      <Component {...pageProps} />
+      <Layout>
+        <Component {...pageProps} />
+      </Layout>
     </QueryClientProvider>
   )
 }
