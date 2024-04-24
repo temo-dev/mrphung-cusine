@@ -31,42 +31,46 @@ function Hero01({ data, form }) {
                 }}
               >
                 <SwiperSlide>
-                  <div className="hero-title">
-                    <h1 className="hero-main-title">{data?.title}</h1>
-                    <h1 className="hero-main-title-1">Restaurant</h1>
-                  </div>
-                  <div className="ak-height-30 ak-height-lg-30" />
-                  <div>
-                    <p className="hero-sub-text">{data?.description}</p>
-                  </div>
-                  <div className="ak-height-70 ak-height-lg-30" />
-                  <Link
-                    href="#booking"
-                    className="hero-btn style-1 smooth-goto"
-                  >
-                    <div className="ak-btn style-5 color-yellow-bg">
-                      {form?.title}
+                  <div className="slider-info">
+                    <div className="hero-title">
+                      <h1 className="hero-main-title">{data?.title}</h1>
+                      <h1 className="hero-main-title-1">Restaurant</h1>
                     </div>
-                  </Link>
+                    <div className="ak-height-30 ak-height-lg-30" />
+                    <div>
+                      <p className="hero-sub-text">{data?.description}</p>
+                    </div>
+                    <div className="ak-height-70 ak-height-lg-30" />
+                    <Link
+                      href="#booking"
+                      className="hero-btn style-1 smooth-goto"
+                    >
+                      <div className="ak-btn style-5 color-yellow-bg">
+                        {form?.title}
+                      </div>
+                    </Link>
+                  </div>
                 </SwiperSlide>
                 <SwiperSlide>
-                  <div className="hero-title">
-                    <h1 className="hero-main-title">{data?.title}</h1>
-                    <h1 className="hero-main-title-1">Restaurant</h1>
-                  </div>
-                  <div className="ak-height-30 ak-height-lg-30" />
-                  <div>
-                    <p className="hero-sub-text">{data?.description}</p>
-                  </div>
-                  <div className="ak-height-70 ak-height-lg-30" />
-                  <Link
-                    href="#booking"
-                    className="hero-btn style-1 smooth-goto"
-                  >
-                    <div className="ak-btn style-5 color-yellow-bg">
-                      {form?.title}
+                  <div className="slider-info">
+                    <div className="hero-title">
+                      <h1 className="hero-main-title">{data?.title}</h1>
+                      <h1 className="hero-main-title-1">Restaurant</h1>
                     </div>
-                  </Link>
+                    <div className="ak-height-30 ak-height-lg-30" />
+                    <div>
+                      <p className="hero-sub-text">{data?.description}</p>
+                    </div>
+                    <div className="ak-height-70 ak-height-lg-30" />
+                    <Link
+                      href="#booking"
+                      className="hero-btn style-1 smooth-goto"
+                    >
+                      <div className="ak-btn style-5 color-yellow-bg">
+                        {form?.title}
+                      </div>
+                    </Link>
+                  </div>
                 </SwiperSlide>
               </Swiper>
               <div></div>

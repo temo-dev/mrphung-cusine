@@ -20,6 +20,11 @@ const getGallery = async () => {
   return { "gallery": res.data }
 }
 
+const getMenu = async () => {
+  const res = await axios.get("https://cms-mr-phung.onrender.com/api/get-all-menu-page")
+  return { "menu": res.data }
+}
+
 
 const initialState = {
   isLoading: true,
@@ -28,6 +33,7 @@ const initialState = {
   dataHome: [],
   dataGallery: [],
   dataChef: [],
+  dataMenu: [],
 }
 
 export const useGetData = create((set, get) => ({
@@ -35,12 +41,13 @@ export const useGetData = create((set, get) => ({
   execute: async () => {
     set({ ...initialState, loading: true })
     try {
-      Promise.all([getLayout(), getHome(), getChef(), getGallery()]).then(res => {
+      Promise.all([getLayout(), getHome(), getChef(), getGallery(), getMenu()]).then(res => {
         const layout = res.find(item => item.layout)
         const home = res.find(item => item.home)
         const chef = res.find(item => item.chef)
         const gallery = res.find(item => item.gallery)
-        set({ ...initialState, isLoading: false, dataLayout: layout?.layout, dataHome: home?.home, dataChef: chef?.chef, dataGallery: gallery?.gallery })
+        const menu = res.find(item => item.menu)
+        set({ ...initialState, isLoading: false, dataLayout: layout?.layout, dataHome: home?.home, dataChef: chef?.chef, dataGallery: gallery?.gallery, dataMenu: menu?.menu })
       })
     } catch (error) {
       console.log(error)

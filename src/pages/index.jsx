@@ -10,7 +10,7 @@ import { useGetData } from "@/store/appStore";
 import Booking from "@/components/BookingSystem/Booking";
 
 export default function Home() {
-  const [home, setHome] = useState();
+  const [home, setHome] = useState(null);
   const { language: language, dataHome: dataHome } = useGetData();
   useEffect(() => {
     if (dataHome?.length > 0) {
