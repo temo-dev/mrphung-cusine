@@ -18,7 +18,6 @@ function Chef() {
   return (
     <>
       <StartHero component={chef?.openComponent[0]} />
-      <div className="ak-height-180 ak-height-lg-90"></div>
       <Chef01 aboutChef={chef?.aboutChef[0]} />
       <div className="ak-height-180 ak-height-lg-90"></div>
       <Booking form={chef?.form[0]} />

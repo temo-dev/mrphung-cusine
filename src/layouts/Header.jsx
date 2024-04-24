@@ -71,7 +71,7 @@ function Header({ data }) {
         height: "116vh",
         ease: Expo.easeInOut,
         stagger: 0.1,
-        background: "#040D10",
+        background: "#040d10e0",
       })
       .fromTo(
         links,
@@ -149,12 +149,12 @@ function Header({ data }) {
           </div>
           <div className="center-log">
             <Link href="/">
-              <Image
+              {/* <Image
                 src="/assets/img/logo.png"
                 alt="logo"
                 width={150}
                 height={150}
-              />
+              /> */}
             </Link>
           </div>
           <button

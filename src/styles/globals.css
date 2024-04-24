@@ -4515,10 +4515,12 @@ select:focus {
   appearance: none;
   width: 100%;
   cursor: pointer;
-  border: none;
   padding: 10px;
-  color: #fff;
-  background-color: transparent;
+  background-color: #fff;
+  border-radius: 8px;
+  border: 1px solid #ffd28d;
+  color: #ffd28d;
+  margin-left: 5px;
 }
 .booking-system-form .ak-form-select option {
   color: #000;
@@ -4534,13 +4536,14 @@ select:focus {
   justify-content: space-between;
 }
 .booking-system-form .ak-form-time-date .ak-time .time-input {
-  border: 1px solid #4f4836;
-  color: #fff;
   width: 100%;
   position: absolute;
   z-index: 4;
   background-color: transparent;
   padding: 9px;
+  border-radius: 8px;
+  border: 1px solid #ffd28d;
+  color: #ffd28d;
 }
 .booking-system-form .ak-form-time-date .ak-time .time-icon {
   position: absolute;
@@ -4551,8 +4554,8 @@ select:focus {
   z-index: 3;
 }
 .booking-system-form
-  .ak-form-time-date
-  input[type="time"]::-webkit-calendar-picker-indicator {
+  .ak-time
+  input[type="datetime-local"]::-webkit-calendar-picker-indicator {
   background-color: #ffd28d;
   cursor: pointer;
   opacity: 0;

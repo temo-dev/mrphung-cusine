@@ -3,18 +3,18 @@
 "use client";
 import { useGetData } from "@/store/appStore";
 import Image from "next/image";
-import React from "react";
+import React, { useRef, useEffect } from "react";
 import { gsap, Expo } from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import Link from "next/link";
+
+gsap.registerPlugin(ScrollTrigger);
+
 function Footer({ data, header }) {
-  if (typeof window !== "undefined") {
-    gsap.registerPlugin(ScrollTrigger);
-    /*--------------------------------------------------------------
-   Footer Animations
---------------------------------------------------------------*/
-    const container = document.getElementsByClassName("ak-hr-container");
-    if (container) {
+  let hrContainer = useRef(null);
+  let loadingOverlap = useRef(null);
+  useEffect(() => {
+    if (hrContainer) {
       const tl7 = gsap.timeline({
         scrollTrigger: {
           trigger: ".ak-hr-container",
@@ -51,15 +51,11 @@ function Footer({ data, header }) {
         width: "100%",
       });
     }
-    /*--------------------------------------------------------------
-    Food Menu Animations
---------------------------------------------------------------*/
-    const elem = document.querySelector(".loading-overlap");
-    if (elem) {
+    if (loadingOverlap) {
       const elem2 = document.querySelector(".footer-log-elem");
       var loadingElem = gsap.timeline();
       elem2.addEventListener("click", function () {
-        loadingElem.to(elem, {
+        loadingElem.to(loadingOverlap, {
           duration: 0.3,
           height: "100vh",
           ease: Expo.easeInOut,
@@ -67,60 +63,20 @@ function Footer({ data, header }) {
         loadingElem.to("html,body", {
           scrollTop: 0,
         });
-        loadingElem.to(elem, {
+        loadingElem.to(loadingOverlap, {
           delay: 0.1,
           top: 0,
           height: "0vh",
           duration: 0.4,
           ease: Expo.easeInOut,
         });
-        loadingElem.to(elem, {
+        loadingElem.to(loadingOverlap, {
           buttom: 0,
         });
       });
-      /*--------------------------------------------------------------
-    19. Footer Animations
- --------------------------------------------------------------*/
-      const hrFooter = document.getElementsByClassName("ak-hr-container");
-      if (hrFooter) {
-        const tl7 = gsap.timeline({
-          scrollTrigger: {
-            trigger: ".ak-hr-container",
-            start: "top 90%",
-            end: "bottom 10%",
-            scrub: false,
-            markers: false,
-          },
-        });
-
-        tl7.fromTo(
-          ".ak-footer-hr-top",
-          {
-            width: "0%",
-            duration: 0.5,
-          },
-          {
-            delay: 0.3,
-            duration: 0.5,
-            width: "100%",
-          }
-        );
-        tl7.fromTo(
-          ".ak-footer-hr-bottom",
-          {
-            width: "0%",
-          },
-          {
-            duration: 0.5,
-            width: "100%",
-          }
-        );
-        tl7.to(".footer-time-border", {
-          width: "100%",
-        });
-      }
     }
-  }
+  }, []);
+
   const { language: language, changeLang: changeLang } = useGetData();
   const handleChangeLang = (e) => {
     changeLang(e.target.value);
@@ -134,7 +90,12 @@ function Footer({ data, header }) {
             className="ak-bg footer-bg-img"
             style={{ backgroundImage: `url(assets/img/footer_bg.png)` }}
           />
-          <div className="container ak-hr-container">
+          <div
+            className="container ak-hr-container"
+            ref={(el) => {
+              hrContainer = el;
+            }}
+          >
             <div className="ak-braner-logo type-color-1 footer-logo">
               <div className="footer-log-elem">
                 <div className="footer-log-icon">
@@ -152,12 +113,12 @@ function Footer({ data, header }) {
                     />
                   </svg>
                 </div>
-                <Image
+                {/* <Image
                   src="/assets/img/Elegencia.png"
                   alt="..."
                   width={100}
                   height={100}
-                />
+                /> */}
               </div>
             </div>
             <div className="ak-height-100 ak-height-lg-60" />
@@ -202,7 +163,7 @@ function Footer({ data, header }) {
                 </div>
               </div>
             </div>
-            {/* <div className="ak-footer-hr-bottom qodef-grid-item" /> */}
+            <div className="ak-footer-hr-bottom qodef-grid-item" />
             <div className="ak-height-130 ak-height-lg-30" />
             <div className="copy-right-section">
               <div className="my-2 w-25 m-auto">
@@ -224,7 +185,12 @@ function Footer({ data, header }) {
           </div>
         </div>
       </footer>
-      <div className="loading-overlap" />
+      <div
+        className="loading-overlap"
+        ref={(el) => {
+          loadingOverlap = el;
+        }}
+      />
       {/* End Footer */}
     </>
   );

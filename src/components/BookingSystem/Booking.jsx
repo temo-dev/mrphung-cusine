@@ -1,7 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 "use client";
-import Link from "next/link";
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { useMutation } from "react-query";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
@@ -18,39 +17,38 @@ const createReservation = async (data) => {
   return res.json();
 };
 
+gsap.registerPlugin(ScrollTrigger);
 function Booking({ form }) {
-  if (typeof window !== "undefined") {
-    gsap.registerPlugin(ScrollTrigger);
-    const imageZoom = document.getElementsByName("imagesZoom");
-    if (imageZoom) {
-      let imagesZoomAll = gsap.utils.toArray(imageZoom);
-      imagesZoomAll.forEach((image) => {
-        let tl12 = gsap.timeline({
-          ScrollTrigger: {
-            trigger: image,
-            start: "top 80%",
-            end: "bottom 10%",
-            scrub: 1,
-            markers: false,
-          },
-        });
-
-        tl12.fromTo(
-          image,
-          { scale: 1 },
-          {
-            scale: 1.15,
-            duration: 3.5,
-            ease: "expoScale(1, 1.15)",
-            transformOrigin: "50% 50%",
-            z: 0.1,
-            rotationZ: "0.01",
-          },
-          "<"
-        );
+  const [isOpen, setOpen] = useState(false);
+  let imageZoom = useRef(null);
+  useEffect(() => {
+    let imagesZoomAll = gsap.utils.toArray(imageZoom);
+    imagesZoomAll.forEach((image) => {
+      let tl12 = gsap.timeline({
+        ScrollTrigger: {
+          trigger: image,
+          start: "top 80%",
+          end: "bottom 10%",
+          scrub: 1,
+          markers: false,
+        },
       });
-    }
-  }
+
+      tl12.fromTo(
+        image,
+        { scale: 1 },
+        {
+          scale: 1.15,
+          duration: 3.5,
+          ease: "expoScale(1, 1.15)",
+          transformOrigin: "50% 50%",
+          z: 0.1,
+          rotationZ: "0.01",
+        },
+        "<"
+      );
+    });
+  }, []);
   const { mutate, isLoading, isError, error } = useMutation(createReservation);
   const [inputs, setInputs] = useState({});
   const handleChange = (e) => {
@@ -75,30 +73,32 @@ function Booking({ form }) {
     <>
       {/* Start Booking System */}
       <section id="booking">
-        <div className="ak-booking-system">
-          <img
-            className="ak-booking-system-bg-img ak-bg imagesZoom"
-            src="/assets/img/bookingSystemBg.png"
-            alt="..."
-          />
+        <div
+          className="ak-booking-system"
+          style={{
+            backgroundImage: `url(${"/assets/img/hero_bg_2.jpg"})`,
+          }}
+        >
           <div className="ak-height-150 ak-height-lg-60" />
           <div className="container">
             <div className="row justify-content-center align-content-center align-items-center">
               <div className="col-md-6 col-12">
                 <div className="ak-height-lg-60" />
                 <div className="text-center">
-                  <Link
-                    href="https://www.youtube.com/watch?v=UsD1MhKBmD4"
-                    className="ak-video-block ak-style1 ak-video-open"
-                  >
-                    <span className="ak-player-btn ak-accent-color">
-                      <span />
-                    </span>
-                  </Link>
+                  <iframe
+                    className="ak-video-block ak-style1"
+                    loading="lazy"
+                    width="500"
+                    height="300"
+                    src="https://www.youtube.com/embed/U57HMnePdA4"
+                    title="YouTube video player"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen
+                  />
                 </div>
                 <div className="ak-height-lg-60" />
               </div>
-              <div className="col-md-6 col-12">
+              <div className="col-md-6 col-12" style={{ color: "#ffd28d" }}>
                 <div className="booking-system-heading">
                   <div className="ak-section-heading ak-style-1">
                     <div className="ak-section-subtitle">{form?.subtitle}</div>
@@ -143,7 +143,7 @@ function Booking({ form }) {
                         />
                         <div className="ak-time">
                           <input
-                            className="time-input"
+                            className="time-input "
                             onChange={handleChange}
                             type="datetime-local"
                             name="reservation_date"
@@ -191,7 +191,14 @@ function Booking({ form }) {
                       </div>
                       <div className="ak-height-110 ak-height-lg-90" />
                       <div>
-                        <button type="submit" className="ak-btn style-5">
+                        <button
+                          type="submit"
+                          className="ak-btn style-5"
+                          style={{
+                            backgroundColor: "#ffd28d",
+                            borderRadius: 8,
+                          }}
+                        >
                           {form?.title}
                         </button>
                       </div>
