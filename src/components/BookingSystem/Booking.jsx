@@ -85,16 +85,20 @@ function Booking({ form }) {
               <div className="col-md-6 col-12">
                 <div className="ak-height-lg-60" />
                 <div className="text-center">
-                  <iframe
-                    className="ak-video-block ak-style1"
-                    loading="lazy"
-                    width="500"
-                    height="300"
-                    src="https://www.youtube.com/embed/U57HMnePdA4"
-                    title="YouTube video player"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowfullscreen
-                  />
+                  <div className="ak-video-block ak-style1 ">
+                    <iframe
+                      loading="lazy"
+                      width="500px"
+                      height="300px"
+                      src="https://www.youtube.com/embed/U57HMnePdA4"
+                      title="MrPhung Cuisine"
+                      allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      allowfullscreen
+                    />
+                    {/* <span className="ak-player-btn">
+                      <span />
+                    </span> */}
+                  </div>
                 </div>
                 <div className="ak-height-lg-60" />
               </div>
