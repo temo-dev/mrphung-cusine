@@ -3,7 +3,6 @@ import Link from "next/link";
 import React from "react";
 
 function Gallery01({ listFoods }) {
-  console.log("listFoods", listFoods);
   return (
     <>
       {/* Start Gallery */}
