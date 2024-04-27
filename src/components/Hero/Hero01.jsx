@@ -34,7 +34,7 @@ function Hero01({ data, form }) {
                   <div className="slider-info">
                     <div className="hero-title">
                       <h1 className="hero-main-title">{data?.title}</h1>
-                      <h1 className="hero-main-title-1">Restaurant</h1>
+                      <h1 className="hero-main-title-1">{data?.subtitle}</h1>
                     </div>
                     <div className="ak-height-30 ak-height-lg-30" />
                     <div>
