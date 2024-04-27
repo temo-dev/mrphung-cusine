@@ -113,12 +113,12 @@ function Footer({ data, header }) {
                     />
                   </svg>
                 </div>
-                {/* <Image
-                  src="/assets/img/Elegencia.png"
+                <Image
+                  src="/assets/img/logoPhung.png"
                   alt="..."
                   width={100}
                   height={100}
-                /> */}
+                />
               </div>
             </div>
             <div className="ak-height-100 ak-height-lg-60" />
@@ -126,7 +126,7 @@ function Footer({ data, header }) {
             <div className="footer-main">
               <div className="footer-eamil-menu">
                 <div className="footer-email">
-                  <a href="mailto:info@example.com">{data?.email}</a>
+                  <a href="mailto:mrphungcuisine@gmail.com">{data?.email}</a>
                 </div>
                 <div className="footer-menu">
                   <ul>
@@ -141,11 +141,11 @@ function Footer({ data, header }) {
               <div className="ak-height-75 ak-height-lg-5" />
               <div className="footer-info">
                 <div className="fooer-phn">
-                  <a href="tel:1-800-915-6271">{data?.phone}</a>
+                  <a href="tel:775 625 678">775625678</a>
                 </div>
                 <div className="footer-address">
                   <a
-                    href="https://maps.app.goo.gl/gAd1JdfRW5d6eHkn7"
+                    href="https://maps.app.goo.gl/c8LNNuixixRHEqur9"
                     target="_blank"
                   >
                     {data?.adress}

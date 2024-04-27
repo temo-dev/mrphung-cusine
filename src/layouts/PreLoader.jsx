@@ -1,3 +1,4 @@
+import Image from "next/image";
 import React from "react";
 
 function PreLoader() {
@@ -7,7 +8,13 @@ function PreLoader() {
       <div id="preloader">
         <div id="ak-preloader" className="ak-preloader">
           <div className="animation-preloader">
-            <div className="spinner" />
+            <div
+              className="spinner"
+              style={{
+                backgroundImage: `url(${"/assets/img/logoPhung.png"})`,
+              }}
+            />
+
             <div className="txt-loading">
               <span data-text-preloader="M" className="letters-loading">
                 M

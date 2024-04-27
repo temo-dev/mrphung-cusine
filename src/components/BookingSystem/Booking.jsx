@@ -1,9 +1,11 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable @next/next/no-img-element */
 "use client";
 import React, { useState, useRef, useEffect } from "react";
 import { useMutation } from "react-query";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
+import { useRouter } from "next/navigation";
 
 const createReservation = async (data) => {
   const res = await fetch(
@@ -19,7 +21,8 @@ const createReservation = async (data) => {
 
 gsap.registerPlugin(ScrollTrigger);
 function Booking({ form }) {
-  const [isOpen, setOpen] = useState(false);
+  const router = useRouter();
+  const [isOpen, setOpen] = useState(true);
   let imageZoom = useRef(null);
   useEffect(() => {
     let imagesZoomAll = gsap.utils.toArray(imageZoom);
@@ -63,11 +66,21 @@ function Booking({ form }) {
     }
   };
 
+  useEffect(() => {
+    console.log("error", error);
+    if (!isLoading) {
+      setOpen(true);
+    }
+  }, [isLoading]);
   const hanldeSubmit = (e) => {
     e.preventDefault();
     mutate({
       data: inputs,
     });
+    setOpen(false);
+    if (!isLoading) {
+      router.push("/");
+    }
   };
   return (
     <>
@@ -102,7 +115,7 @@ function Booking({ form }) {
                 </div>
                 <div className="ak-height-lg-60" />
               </div>
-              <div className="col-md-6 col-12" style={{ color: "#ffd28d" }}>
+              <div className="col-md-6 col-12" style={{ color: "#eb1c23a1" }}>
                 <div className="booking-system-heading">
                   <div className="ak-section-heading ak-style-1">
                     <div className="ak-section-subtitle">{form?.subtitle}</div>
@@ -164,19 +177,19 @@ function Booking({ form }) {
                               <g clipPath="url(#clip0_1166_8212)">
                                 <path
                                   d="M12 24.002C5.38581 24.002 0 18.6161 0 12.002C0 5.38777 5.38581 0.00195312 12 0.00195312C18.6142 0.00195312 24 5.38777 24 12.002C24 18.6161 18.6142 24.002 12 24.002ZM12 1.14474C6.01423 1.14474 1.14279 6.01618 1.14279 12.002C1.14279 17.9877 6.01423 22.8592 12 22.8592C17.9858 22.8592 22.8572 17.9877 22.8572 12.002C22.8572 6.01618 17.9858 1.14474 12 1.14474Z"
-                                  fill="#FFD28D"
+                                  fill="#eb1c23a1"
                                 />
                                 <path
                                   d="M11.4287 4.00195H12.5717V10.2876H11.4287V4.00195Z"
-                                  fill="#FFD28D"
+                                  fill="#eb1c23a1"
                                 />
                                 <path
                                   d="M11.4287 13.7168H12.5717V16.5739H11.4287V13.7168Z"
-                                  fill="#FFD28D"
+                                  fill="#eb1c23a1"
                                 />
                                 <path
                                   d="M12.0001 14.2884C10.7431 14.2884 9.71436 13.2596 9.71436 12.0026C9.71436 10.7455 10.7431 9.7168 12.0001 9.7168C13.2572 9.7168 14.2859 10.7455 14.2859 12.0026C14.2859 13.2596 13.2572 14.2884 12.0001 14.2884ZM12.0001 10.8598C11.3715 10.8598 10.8574 11.374 10.8574 12.0026C10.8574 12.6312 11.3715 13.1454 12.0001 13.1454C12.6288 13.1454 13.1429 12.6312 13.1429 12.0026C13.1429 11.374 12.6288 10.8598 12.0001 10.8598Z"
-                                  fill="#FFD28D"
+                                  fill="#eb1c23a1"
                                 />
                               </g>
                               <defs>
@@ -199,9 +212,10 @@ function Booking({ form }) {
                           type="submit"
                           className="ak-btn style-5"
                           style={{
-                            backgroundColor: "#ffd28d",
+                            backgroundColor: "#eb1c23a1",
                             borderRadius: 8,
                           }}
+                          disabled={!isOpen}
                         >
                           {form?.title}
                         </button>

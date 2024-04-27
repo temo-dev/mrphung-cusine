@@ -149,12 +149,12 @@ function Header({ data }) {
           </div>
           <div className="center-log">
             <Link href="/">
-              {/* <Image
-                src="/assets/img/logo.png"
+              <Image
+                src="/assets/img/logoPhung.png"
                 alt="logo"
-                width={150}
-                height={150}
-              /> */}
+                width={60}
+                height={60}
+              />
             </Link>
           </div>
           <button

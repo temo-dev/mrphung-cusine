@@ -55,5 +55,6 @@ export const useGetData = create((set, get) => ({
     }
   },
   changeLang: (payload) => set({ language: payload }),
+  changLoading: (payload) => set({ isLoading: payload })
 
 }))
