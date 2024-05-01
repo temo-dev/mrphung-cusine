@@ -26,7 +26,7 @@ function Menu() {
       <StartHero component={menu?.openPage[0]} />
       <div className="ak-height-150 ak-height-lg-60" />
       <Menu01 data={menu?.menuItems[0]} />
-      <div className="ak-height-100 ak-height-lg-60" />
+      <div className="ak-height-50 ak-height-lg-60" />
       <Review data={home?.reviews} />
       <Booking form={menu?.form[0]} />
     </>

@@ -23,6 +23,7 @@ gsap.registerPlugin(ScrollTrigger);
 function Booking({ form }) {
   const router = useRouter();
   const [isOpen, setOpen] = useState(true);
+  const [defaultTime, setDefaultTime] = useState(false);
   let imageZoom = useRef(null);
   useEffect(() => {
     let imagesZoomAll = gsap.utils.toArray(imageZoom);
@@ -51,9 +52,17 @@ function Booking({ form }) {
         "<"
       );
     });
+    setDefaultTime(toDateInputValue(new Date()));
   }, []);
   const { mutate, isLoading, isError, error } = useMutation(createReservation);
   const [inputs, setInputs] = useState({});
+
+  const toDateInputValue = (dateObject) => {
+    const local = new Date(dateObject);
+    local.setMinutes(dateObject.getMinutes() - dateObject.getTimezoneOffset());
+    return local.toJSON().slice(0, 10);
+  };
+
   const handleChange = (e) => {
     const name = e.target.name;
     const value = e.target.value;
@@ -82,6 +91,7 @@ function Booking({ form }) {
       router.push("/");
     }
   };
+  console.log("defaultTime", defaultTime);
   return (
     <>
       {/* Start Booking System */}
@@ -164,6 +174,7 @@ function Booking({ form }) {
                             onChange={handleChange}
                             type="datetime-local"
                             name="reservation_date"
+                            defaultValue={`2024-08-01T08:30`}
                             id="time"
                           />
                           <div className="time-icon">

@@ -15,13 +15,13 @@ function Menu01({ data }) {
           </div>
           <div className="ak-height-150 ak-height-lg-60" />
           <div className="ak-menu-list">
-            <HTMLFlipBook width={500} height={500} showCover={true}>
+            <HTMLFlipBook width={500} height={1200} showCover={true}>
               {data?.images.map((item) => (
                 <div key={item.id}>
                   <Image
                     src={item.url}
                     alt="mrPhung"
-                    height={500}
+                    height={1200}
                     width={500}
                     priority
                   />
