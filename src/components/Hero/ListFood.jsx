@@ -5,6 +5,7 @@ import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination } from "swiper/modules";
 import Link from "next/link";
+import Image from "next/image";
 
 function ListFood({ data }) {
   return (
@@ -40,7 +41,13 @@ function ListFood({ data }) {
                   <SwiperSlide key={food.id}>
                     <div className="ak-card ak-style-1">
                       <Link href="/menu" className="ak-card-img">
-                        <img src={food?.image} alt="..." />
+                        <Image
+                          src={food?.image}
+                          alt="..."
+                          priority
+                          width={500}
+                          height={500}
+                        />
                       </Link>
                       <div className="card-info">
                         <div className="card-text style-1">

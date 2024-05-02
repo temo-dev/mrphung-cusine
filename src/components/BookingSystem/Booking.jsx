@@ -109,7 +109,7 @@ function Booking({ form }) {
                 <div className="ak-height-lg-60" />
                 <div className="text-center">
                   <div className="ak-video-block ak-style1 ">
-                    <iframe
+                    {/* <iframe
                       loading="lazy"
                       width="500px"
                       height="300px"
@@ -117,7 +117,7 @@ function Booking({ form }) {
                       title="MrPhung Cuisine"
                       allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                       allowfullscreen
-                    />
+                    /> */}
                     {/* <span className="ak-player-btn">
                       <span />
                     </span> */}

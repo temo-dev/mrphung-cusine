@@ -1,4 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
+import Image from "next/image";
 import React from "react";
 
 function Chef01({ aboutChef }) {
@@ -39,11 +40,14 @@ function Chef01({ aboutChef }) {
               <div className="ak-height-45 ak-height-lg-30" />
             </div>
             <div className="about-img">
-              <img
+              <Image
                 src={aboutChef?.image}
                 className="imagesZoom"
                 data-speed="1.1"
                 alt="meetAbout"
+                width={500}
+                height={500}
+                priority
               />
             </div>
           </div>
