@@ -8,9 +8,11 @@ function Menu01({ data }) {
   const [windowWidth, setWindowWidth] = useState(600);
   const { width } = useWindowSize();
   useEffect(() => {
-    if (width <= 375) {
-      setWindowWidth(width * 0.8);
+    let checked = width * 0.8;
+    if (checked > 600) {
+      setWindowWidth(600);
     }
+    setWindowWidth(checked);
   }, [width]);
   return (
     <>
