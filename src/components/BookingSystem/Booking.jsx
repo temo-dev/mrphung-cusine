@@ -174,6 +174,7 @@ function Booking({ form }) {
                             onChange={handleChange}
                             type="datetime-local"
                             name="reservation_date"
+                            defaultValue={"2024-05-05T11:00:00"}
                             id="time"
                           />
                           <div className="time-icon">
