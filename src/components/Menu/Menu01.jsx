@@ -1,9 +1,17 @@
 "use client";
 import Image from "next/image";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import HTMLFlipBook from "react-pageflip";
+import { useWindowSize } from "react-use";
 
 function Menu01({ data }) {
+  const [windowWidth, setWindowWidth] = useState(600);
+  const { width } = useWindowSize();
+  useEffect(() => {
+    if (width <= 375) {
+      setWindowWidth(width * 0.8);
+    }
+  }, [width]);
   return (
     <>
       {/* Start Food Menu  Appetizers*/}
@@ -15,14 +23,14 @@ function Menu01({ data }) {
           </div>
           <div className="ak-height-150 ak-height-lg-60" />
           <div className="ak-menu-list">
-            <HTMLFlipBook width={500} height={1200} showCover={true}>
+            <HTMLFlipBook width={windowWidth} height={1200} showCover={true}>
               {data?.images.map((item) => (
                 <div key={item.id}>
                   <Image
                     src={item.url}
                     alt="mrPhung"
                     height={1200}
-                    width={500}
+                    width={windowWidth}
                     priority
                   />
                 </div>

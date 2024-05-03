@@ -141,13 +141,13 @@ function Booking({ form }) {
                           type="text"
                           name="name"
                           className="ak-form-select form-control"
-                          placeholder="Your Name"
+                          placeholder="Name"
                           onChange={handleChange}
                         />
                         <input
                           type="tel"
                           className="ak-form-select"
-                          placeholder="Your Phone"
+                          placeholder="Phone"
                           name="phone"
                           onChange={handleChange}
                         />
@@ -159,22 +159,21 @@ function Booking({ form }) {
                           placeholder="Slots"
                           min="1"
                         />
-                      </div>
-                      <div className="ak-form-time-date">
                         <input
                           type="email"
                           name="email"
                           onChange={handleChange}
                           className="ak-form-select form-control"
-                          placeholder="Your Email"
+                          placeholder="Email"
                         />
+                      </div>
+                      <div className="ak-form-time-date">
                         <div className="ak-time">
                           <input
                             className="time-input "
                             onChange={handleChange}
                             type="datetime-local"
                             name="reservation_date"
-                            defaultValue={`2024-08-01T08:30`}
                             id="time"
                           />
                           <div className="time-icon">

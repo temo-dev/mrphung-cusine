@@ -3511,6 +3511,12 @@ select:focus {
   left: 0;
   top: 0;
   z-index: 9;
+  filter: blur(4px);
+  -o-filter: blur(4px);
+  -ms-filter: blur(4px);
+  -moz-filter: blur(4px);
+  -webkit-filter: blur(4px);
+  filter: brightness(50%);
 }
 .ak-hero.ak-style1 .hero-text-section {
   z-index: 10;
@@ -4118,7 +4124,7 @@ select:focus {
 }
 .ak-menu-list.style-2 {
   flex-direction: column;
-  width: 650px;
+  /* width: 650px; */
 }
 .ak-menu-list .ak-menu-list-section-1 {
   flex-basis: 47%;
