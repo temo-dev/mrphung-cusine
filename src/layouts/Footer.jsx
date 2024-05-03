@@ -177,9 +177,11 @@ function Footer({ data, header }) {
                   <option value="en">English</option>
                 </select>
               </div>
-              <p className="text-uppercase text-md-center text-white">
-                {data?.copyright}
-              </p>
+              <Link href="https://cms-mr-phung.onrender.com/admin/auth/login">
+                <p className="text-uppercase text-md-center text-white">
+                  {data?.copyright}
+                </p>
+              </Link>
             </div>
             <div className="ak-height-45 ak-height-lg-30" />
           </div>
