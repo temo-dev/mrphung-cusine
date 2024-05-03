@@ -178,7 +178,7 @@ function Booking({ form }) {
                             id="time"
                           />
                           <div className="time-icon">
-                            <svg
+                            {/* <svg
                               xmlns="http://www.w3.org/2000/svg"
                               width={24}
                               height={25}
@@ -213,7 +213,7 @@ function Booking({ form }) {
                                   />
                                 </clipPath>
                               </defs>
-                            </svg>
+                            </svg> */}
                           </div>
                         </div>
                       </div>
