@@ -145,7 +145,7 @@ function Footer({ data, header }) {
                 </div>
                 <div className="footer-address">
                   <a
-                    href="https://maps.app.goo.gl/c8LNNuixixRHEqur9"
+                    href="https://maps.app.goo.gl/7H7tJtwE8GKiCKTKA"
                     target="_blank"
                   >
                     {data?.adress}
