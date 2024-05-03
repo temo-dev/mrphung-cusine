@@ -9,11 +9,13 @@ function Menu01({ data }) {
   const { width } = useWindowSize();
   useEffect(() => {
     let checked = width * 0.8;
-    if (checked > 600) {
+    if (checked >= 600) {
       setWindowWidth(600);
+    } else {
+      setWindowWidth(checked);
     }
-    setWindowWidth(checked);
   }, [width]);
+  console.log("width", width);
   return (
     <>
       {/* Start Food Menu  Appetizers*/}
