@@ -150,10 +150,10 @@ function Header({ data }) {
           <div className="center-log">
             <Link href="/">
               <Image
-                src="/assets/img/logoPhung.png"
+                src="/assets/img/logo.jpg"
                 alt="logo"
-                width={60}
-                height={60}
+                width={70}
+                height={70}
               />
             </Link>
           </div>

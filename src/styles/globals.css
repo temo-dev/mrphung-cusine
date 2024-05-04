@@ -2714,7 +2714,7 @@ select:focus {
   position: relative;
   padding: 0px 10px 0px 28px;
   height: 70px;
-  background-color: #ffffff62;
+  background-color: #ffffff;
 }
 .ak-site_header.ak-style1 .header-top .wrapper {
   height: 100%;
@@ -2730,7 +2730,7 @@ select:focus {
   align-items: center;
 }
 .ak-site_header.ak-style1 .header-top .wrapper .header-logo .logo {
-  color: #fff;
+  color: #eb1c23a1;
   opacity: 1;
   font-size: 18px;
   text-transform: uppercase;
@@ -2764,7 +2764,7 @@ select:focus {
   height: 0;
 }
 .ak-site_header.ak-style1 .header-top .top-main-menu .top-main-menu-li {
-  height: 180px;
+  height: 80px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -2792,7 +2792,7 @@ select:focus {
 }
 .ak-site_header.ak-style1 .header-top .top-main-menu li > a {
   display: none;
-  font-size: 60px;
+  font-size: 40px;
   line-height: 120%;
   display: inline-block;
 }
@@ -3356,6 +3356,11 @@ select:focus {
 .ak-braner-logo .footer-log-elem {
   cursor: pointer;
   display: inline-block;
+  background-color: #fff;
+  width: 130px;
+  height: 130px;
+  border-radius: 50%;
+  margin-top: 10px;
 }
 .ak-braner-logo.footer-logo:hover .footer-log-icon > svg > path {
   stroke: #eb1c23a1;
