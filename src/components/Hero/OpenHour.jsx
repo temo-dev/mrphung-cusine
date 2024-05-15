@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-key */
 /* eslint-disable @next/next/no-img-element */
 "use client";
 import React from "react";
@@ -48,11 +49,14 @@ function OpenHour({ data, form }) {
             <div className="ak-height-30 ak-height-lg-30" />
             <p className="opening-hour-subtext">{data?.description}</p>
             <div className="ak-height-30 ak-height-lg-30" />
-            <div className="opening-hour-date">
-              <p>{data?.date}</p>
-              <div className="opening-hour-hr" />
-              <p> {data?.time}</p>
-            </div>
+            {data?.schedue.map((item) => (
+              <div className="opening-hour-date">
+                <p>{item?.date}</p>
+                <div className="opening-hour-hr" />
+                <p> {item?.time}</p>
+                <div className="ak-height-30 ak-height-lg-30" />
+              </div>
+            ))}
             <div className="ak-height-70 ak-height-lg-30" />
             <div className="text-btn">
               <a href="#booking" className="text-btn1 smooth-goto">
