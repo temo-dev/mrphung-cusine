@@ -76,7 +76,6 @@ function Booking({ form }) {
   };
 
   useEffect(() => {
-    console.log("error", error);
     if (!isLoading) {
       setOpen(true);
     }
@@ -88,10 +87,9 @@ function Booking({ form }) {
     });
     setOpen(false);
     if (!isLoading) {
-      router.push("/");
+      router.push("/success");
     }
   };
-  console.log("defaultTime", defaultTime);
   return (
     <>
       {/* Start Booking System */}
